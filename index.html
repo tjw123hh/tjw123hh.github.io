@@ -48,7 +48,7 @@
             }
             var ip=getCookie("ip");
             var watches=getCookie("watches")
-            if (ip!=""){
+            if (ip==returnCitySN["cip"]){
                 alert("欢迎再次访问！您的IP是" + ip);
             }
             else{

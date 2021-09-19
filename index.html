@@ -47,12 +47,20 @@
                 return "";
             }
             var ip=getCookie("ip");
+            var watches=getCookie("watches")
             if (ip!=""){
                 alert("欢迎再次访问！您的IP是" + ip);
             }
             else{
                 setCookie("ip",returnCitySN["cip"],36500);
+                if(watches!=""){
+                    setCookie("watches",getCookie("watches")+1,36500)
+                }
+                else{
+                    setCookie("watches",1,36500)
+                }
             }
+            document.write("您是第 "+watches+" 位浏览此网页的用户")
         </script>
     </body>
 </html>

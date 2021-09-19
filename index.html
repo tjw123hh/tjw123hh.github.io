@@ -46,16 +46,13 @@
                 }
                 return "";
             }
-            function checkCookie(){
-                var ip=getCookie("ip");
-                if (username!=""){
-                    alert("欢迎再次访问！您的IP是" + ip);
-                }
-                else{
-                    setCookie("ip",returnCitySN["cip"],36500);
-                }
+            var ip=getCookie("ip");
+            if (username!=""){
+                alert("欢迎再次访问！您的IP是" + ip);
             }
-            checkCookie()
+            else{
+                setCookie("ip",returnCitySN["cip"],36500);
+            }
         </script>
     </body>
 </html>

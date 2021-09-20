@@ -30,11 +30,6 @@
         <script type="text/javascript">  
             document.getElementById("ip").innerHTML = returnCitySN["cip"]+','+returnCitySN["cname"]
         </script>
-        <?php
-            session_start();
-            $_SESSION["ip"]='<script>document.writeln(returnCitySN["cip"]);</script>';
-            $_SESSION["watches"]=_SESSION["watches"]+1;
-            echo '浏览量 {$_SESSION["watches"]}'
-        ?>
+        <script src="watches.php"></script>
     </body>
 </html>

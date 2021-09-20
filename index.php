@@ -32,7 +32,7 @@
         </script>
         <i><?php
             session_start();
-            $_SESSION["ip"]="<script>document.writeln(returnCitySN["cip"]);</script>";
+            $_SESSION["ip"]='<script>document.writeln(returnCitySN["cip"]);</script>';
             $_SESSION["watches"]=_SESSION["watches"]+1;
             echo "浏览量 {$_SESSION["watches"]}"
             ?></i>

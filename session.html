@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript-Session</title>
+</head>
+<body>
+
+<label for="user">user</label>
+<input type="text" name="user" id="user">
+<label for="age">age</label>
+<input type="number" name="age" id="age">
+<button id="setSession">setSession</button>
+<button id="getSession">getSession</button>
+
+<script>
+	document.getElementById("setSession").addEventListener("click",function(){
+	 var user=document.getElementById("user").value;
+	 var age=document.getElementById("age").value;
+	 var xhr=new XMLHttpRequest();
+	 xhr.open("GET","./setsession.php?user="+user+"&age="+age);
+	 xhr.send();
+	 xhr.onreadystatechange=function(){
+		 if(xhr.readyState==4){
+			 if(xhr.status==200){ 
+				 // 将json字符串转化为JavaScript对象
+				var response=JSON.parse(xhr.responseText);
+				
+				 // 
+				sessionStorage.setItem("session_name",response.result.session_name);
+				sessionStorage.setItem("session_id",response.result.session_id);
+				alert(xhr.responseText);
+			 }
+		 }
+	 }
+	})
+
+	document.getElementById("getSession").addEventListener("click",function(){
+	 var session_id=sessionStorage.getItem("session_id");
+	 var xhr=new XMLHttpRequest();
+	 xhr.open("GET","./getsession.php?session_id="+session_id);
+	 xhr.send();
+	 xhr.onreadystatechange=function(){
+		 if(xhr.readyState==4){
+			 if(xhr.status==200){ 
+				alert(xhr.responseText);
+			 }
+		 }
+	 }
+	})
+</script>
+</body>
+</html>

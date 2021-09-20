@@ -1,10 +1,34 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>How to put PHP in HTML - Simple Example</title>
-  </head>
-  <body>
-    <h1><?php echo "This message is from server side." ?></h1>
-  </body>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>tjw123hh</title>
+        <link rel="shortcut icon" type="image/png" href="qingyusama.png"/>
+        <style type="text/css">
+            * {text-align: center;}
+            h1 {color: crimson;}
+            li {text-align: left;}
+        </style>
+    </head>
+    <body>
+        <h1>INDEX.HTML</h1>
+        <i id="date"></i>
+        <script>
+            document.getElementById("date").innerHTML = new Date().toTimeString();
+        </script>
+        <hr/>
+        <div>
+            <ul>
+                <li><a href="wlssmdy.html">网络上什么都有</a></li>
+                <li><a href="qingyusama.png">晴雨Sama</a></li>
+                <li><a href="README.html">README</a></li>
+                <li><a href="LICENSE">LICENSE</a></li>
+            </ul>
+        </div>
+        <i id="ip">wdnmd</i>
+        <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>  
+        <script type="text/javascript">  
+            document.getElementById("ip").innerHTML = returnCitySN["cip"]+','+returnCitySN["cname"]
+        </script>
+    </body>
 </html>

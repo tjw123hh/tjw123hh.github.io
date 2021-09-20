@@ -1,0 +1,15 @@
+body{
+    margin-right: 10%;
+    margin-left: 10%;
+    vertical-align: middle;
+    background-color: lightblue;
+    background-image: url(qingyusama.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-attachment: fixed;
+}
+*{text-align: center;}
+h1{color: blue;}
+li{text-align: left;}
+footer{text-align: left;}
+.fixed-bottom{position: fixed; bottom: 0; width:100%;}

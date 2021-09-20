@@ -1,15 +1,19 @@
-body{
+html{
     margin-right: 10%;
     margin-left: 10%;
     vertical-align: middle;
-    background-color: lightblue;
-    background-image: url(qingyusama.png);
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-attachment: fixed;
+    background: url(background.png) rgba(0, 60, 255, 0.5) repeat-x fixed left bottom / 100px 100px;
 }
 *{text-align: center;}
 h1{color: blue;}
-li{text-align: left;}
+div.li{
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+    border-left: 5px solid red;
+    border-radius: 5px;
+    background-color: lightgrey;
+    }
 footer{text-align: left;}
-.fixed-bottom{position: fixed; bottom: 0; width:100%;}
+.fixed-bottom{position: fixed; bottom: 120px; width:100%;}

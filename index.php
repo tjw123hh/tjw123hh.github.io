@@ -30,11 +30,25 @@
         <script type="text/javascript">  
             document.getElementById("ip").innerHTML = returnCitySN["cip"]+','+returnCitySN["cname"]
         </script>
-        <i><?php
-            session_start();
-            $_SESSION["ip"]="<script>document.writeln(returnCitySN["cip"]);</script>";
-            $_SESSION["watches"]=_SESSION["watches"]+1;
-            echo "浏览量 {$_SESSION["watches"]}"
-            ?></i>
+        <?php
+        session_start();
+        $session_id=session_id();
+        $session_name=session_name();
+        $user=$_GET['user'];
+        $age=$_GET['age'];
+        $_SESSION['user']=$user;
+        $_SESSION['age']=$age;
+        $data=[
+        "msg"=>"OK",
+        "code"=>"2000",
+        "result"=>[
+            "session_id"=>$session_id,
+            "session_name"=>$session_name
+            ]
+        ];
+        
+        $data=json_encode($data);
+        echo $data;
+        ?>
     </body>
 </html>

@@ -12,7 +12,5 @@ $data=[
 			"age"=>$age
 		  ]
 ];
-$data=json_encode($data);
-
-echo $data;
+echo json_encode($data);
 

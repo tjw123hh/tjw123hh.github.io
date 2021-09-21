@@ -29,14 +29,14 @@
         </script>
     </body>
     <footer><a href="LICENSE" style="margin-bottom: 120px;"><i>LICENSE</i></a></footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(function(){
             function footerPosition(){
                 $("footer").removeClass("fixed-bottom");
                 var contentHeight = document.body.scrollHeight,//网页正文全文高度
                     winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
-                if(!((contentHeight+155) > winHeight)){
+                if(!((contentHeight+140) > winHeight)){
                     //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
                     $("footer").addClass("fixed-bottom");
                 } else {

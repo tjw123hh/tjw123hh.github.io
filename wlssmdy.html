@@ -38,8 +38,14 @@
                     $("footer").removeClass("fixed-bottom");
                 }
             }
+        $(function(){
+            function setHeight(){
+                $("iframe").attr("height", parseFloat($(document.body).outerWidth(true))*0.5.toString())
+            }
+        })
             footerPosition();
             $(window).resize(footerPosition);
+            $(window).resize(setHeight)
         });
     </script>
 </html>

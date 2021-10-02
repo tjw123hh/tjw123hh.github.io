@@ -20,9 +20,6 @@
         <iframe src="https://player.bilibili.com/player.html?aid=547944967&bvid=BV1aq4y1N7Vz&cid=406814475&page=1" border="0" frameborder="no" allowfullscreen="true">
             <a href="https://www.bilibili.com/video/BV1aq4y1N7Vz"><img src="video.png"/></a>
         </iframe>
-        <script>
-            $("iframe").attr("height", parseFloat($(window).outerWidth(true))*0.4.toString())
-        </script>
     </body>
     <footer><a href="LICENSE"><i>LICENSE</i></a></footer>
     <script type="text/javascript">
@@ -38,14 +35,13 @@
                     $("footer").removeClass("fixed-bottom");
                 }
             }
-        $(function(){
             function setHeight(){
-                $("iframe").attr("height", parseFloat($(document.body).outerWidth(true))*0.5.toString())
+                $("iframe").attr("height", parseFloat($(window).outerWidth(true))*0.4.toString())
             }
-        })
             footerPosition();
+            setHeight();
             $(window).resize(footerPosition);
-            $(window).resize(setHeight)
+            $(window).resize(setHeight);
         });
     </script>
 </html>

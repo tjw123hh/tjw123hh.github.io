@@ -8,6 +8,7 @@
         <!--[if lt IE 9]>
             <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
         <![endif]-->
+        <script src="jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <img src="qingyusama.png" alt="晴雨Sama" width="100" height="100" />
@@ -16,12 +17,14 @@
         <ul>
             <div class="li"><a href="https://afdian.net/p/0164034c016c11ebafcb52540025c377">PCL2 下载</a></div>
         </ul>
-        <iframe src="https://player.bilibili.com/player.html?aid=547944967&bvid=BV1aq4y1N7Vz&cid=406814475&page=1" border="0" frameborder="no" allowfullscreen="true" width="80%" height="500px">
+        <iframe src="https://player.bilibili.com/player.html?aid=547944967&bvid=BV1aq4y1N7Vz&cid=406814475&page=1" border="0" frameborder="no" allowfullscreen="true">
             <a href="https://www.bilibili.com/video/BV1aq4y1N7Vz"><img src="video.png"/></a>
         </iframe>
+        <script>
+            $("iframe").attr("height", parseFloat($(document.body).outerWidth(true))*0.4.toString())
+        </script>
     </body>
     <footer><a href="LICENSE"><i>LICENSE</i></a></footer>
-    <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(function(){
             function footerPosition(){

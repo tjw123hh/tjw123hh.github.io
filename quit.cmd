@@ -1,0 +1,1 @@
+taskkill /IM StudentMain.exe /F /T

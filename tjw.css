@@ -38,4 +38,4 @@ li a:active {
     font-size: 0.5em;
 }
 .fixed-bottom{position: fixed; left: 0; bottom: 120px; width: 100%;}
-iframe{width: 80%; min-width: 200px;}
+iframe{width: 80%; height: 500px;}

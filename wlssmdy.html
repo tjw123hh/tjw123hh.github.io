@@ -22,15 +22,24 @@
         <iframe src="https://player.bilibili.com/player.html?aid=547944967&bvid=BV1aq4y1N7Vz&cid=406814475&page=1" border="0" frameborder="no" allowfullscreen="true">
             <a href="https://www.bilibili.com/video/BV1aq4y1N7Vz"><img src="video.png"/></a>
         </iframe>
+        <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
     </body>
-    <footer><a href="LICENSE" download="LICENSE.txt"><i>LICENSE</i></a></footer>
+    <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(function(){
-            function setHeight(){
-                $("iframe").attr("height", parseFloat($(window).outerWidth(true))*0.4.toString())
+            function footerPosition(){
+                $(".footer").removeClass("fixed-bottom");
+                var contentHeight = document.body.scrollHeight,//网页正文全文高度
+                    winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
+                if(!((contentHeight + 120 + $(".footer").outerHeight(true)) > winHeight)){
+                    //当网页正文高度大于可视窗口高度时，为footer添加类fixed-bottom
+                    $(".footer").addClass("fixed-bottom");
+                } else {
+                    $(".footer").removeClass("fixed-bottom");
+                }
             }
-            setHeight();
-            $(window).resize(setHeight);
+            footerPosition();
+            $(window).resize(footerPosition);
         });
     </script>
 </html>

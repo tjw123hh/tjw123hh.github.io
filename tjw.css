@@ -5,15 +5,32 @@ body{
 }
 *{text-align: center;}
 h1{color: blue;}
-div.li{
-    padding-left: 20px;
+li{
+    list-style-type: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+li a{
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 10px;
     text-align: left;
     border-left: 10px solid red;
     border-radius: 5px;
+    display: block;
+    text-decoration: none;
+    }
+li a:link,li a:visited{
     background-color: lightgrey;
     }
-footer{width: 100%;}
-.fixed-bottom{position: absolute; bottom: 120px; width: 80%;}
+li a:hover {
+    background-color: rgb(238, 158, 144);
+    }
+      
+li a:active {
+    background-color: rgb(255, 140, 105);
+    } 
+.footer{width: 100%;}
+.fixed-bottom{position: fixed; bottom: 120px;}
 iframe{width: 80%;}

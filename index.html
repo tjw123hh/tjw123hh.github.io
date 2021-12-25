@@ -25,20 +25,20 @@
         <script type="text/javascript">  
             document.getElementById("ip").innerHTML = returnCitySN["cip"]+','+returnCitySN["cname"]
         </script>
-        <a class="footer" href="LICENSE" download="LICENSE.txt" style="margin-bottom: 120px;"><i>LICENSE</i></a>
+        <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(function(){
             function footerPosition(){
-                $("footer").removeClass("fixed-bottom");
+                $(".footer").removeClass("fixed-bottom");
                 var contentHeight = document.body.scrollHeight,//网页正文全文高度
                     winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
-                if(!((contentHeight + 120) > winHeight)){
-                    //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
-                    $("footer").addClass("fixed-bottom");
+                if(!((contentHeight + 120 + $(".footer").outerHeight(true)) > winHeight)){
+                    //当网页正文高度大于可视窗口高度时，为footer添加类fixed-bottom
+                    $(".footer").addClass("fixed-bottom");
                 } else {
-                    $("footer").removeClass("fixed-bottom");
+                    $(".footer").removeClass("fixed-bottom");
                 }
             }
             footerPosition();

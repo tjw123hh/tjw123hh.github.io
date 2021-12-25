@@ -20,17 +20,22 @@ li a{
     border-radius: 5px;
     display: block;
     text-decoration: none;
-    }
+}
 li a:link,li a:visited{
     background-color: lightgrey;
-    }
+}
 li a:hover {
     background-color: rgb(238, 158, 144);
-    }
+}
       
 li a:active {
     background-color: rgb(255, 140, 105);
-    } 
-.footer{width: 100%;}
-.fixed-bottom{position: fixed; bottom: 120px;}
-iframe{width: 80%;}
+} 
+.footer{
+    padding: 0;
+    display: block;
+    color: lightgray;
+    font-size: 0.5em;
+}
+.fixed-bottom{position: fixed; left: 0; bottom: 120px; width: 100%;}
+iframe{width: 80%; min-width: 200px;}

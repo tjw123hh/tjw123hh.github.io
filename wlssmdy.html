@@ -12,8 +12,21 @@
         <script src="jquery-3.6.0.min.js"></script>
     </head>
     <body>
-        <img src="qingyusama.png" alt="晴雨Sama" width="100" height="100" />
+        <div style="height: 50px;" ></div>
+        <ul class="top">
+            <li><a href="index.html">INDEX</a></li>
+            <li><a href="wlssmdy.html" class="active">网络上什么都有</a></li>
+            <li><a href="qingyusama.png">晴雨Sama</a></li>
+            <li><a href="README.html">关于</a></li>
+        </ul>
         <h1>网络上什么都有</h1>
+        <i id="date"></i>
+        <script>
+            for (let i = 0; i<=100; i++) {
+                setTimeout(() => document.getElementById("date").innerHTML = new Date().toTimeString(), 1000 * i)
+            } 
+            setTimeout(() => window.location.reload(), 100000)
+        </script>
         <hr/>
         <ul>
             <li><a href="https://afdian.net/p/0164034c016c11ebafcb52540025c377">PCL2 下载</a></li>

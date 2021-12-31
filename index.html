@@ -8,24 +8,27 @@
         <link rel="stylesheet" type="text/css" href="tjw.css"/>
     </head>
     <body>
+        <div style="height: 50px;" ></div>
+        <ul class="top">
+            <li><a href="index.html" class="active">INDEX</a></li>
+            <li><a href="wlssmdy.html">网络上什么都有</a></li>
+            <li><a href="qingyusama.png">晴雨Sama</a></li>
+            <li><a href="README.html">关于</a></li>
+        </ul>
         <h1>INDEX.HTML</h1>
         <i id="date"></i>
         <script>
-            document.getElementById("date").innerHTML = new Date().toTimeString();
+            for (let i = 0; i<=100; i++) {
+                setTimeout(() => document.getElementById("date").innerHTML = new Date().toTimeString(), 1000 * i)
+            } 
+            setTimeout(() => window.location.reload(), 100000)
         </script>
         <hr/>
-        <div>
-            <ul>
-                <li><a href="wlssmdy.html">网络上什么都有</a></li>
-                <li><a href="qingyusama.png">晴雨Sama</a></li>
-                <li><a href="README.html">README</a></li>
-            </ul>
-        </div>
-        <i id="ip">wdnmd</i>
-        <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>  
-        <script type="text/javascript">  
-            document.getElementById("ip").innerHTML = returnCitySN["cip"]+','+returnCitySN["cname"]
-        </script>
+        <ul>
+            <li><a href="wlssmdy.html">网络上什么都有</a></li>
+            <li><a href="qingyusama.png">晴雨Sama</a></li>
+            <li><a href="README.html">README</a></li>
+        </ul>
         <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
     </body>
     <script src="jquery-3.6.0.min.js"></script>

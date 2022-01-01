@@ -43,12 +43,15 @@ li a:active {
     background-color: rgb(255, 140, 105);
 }
 
+ul{
+    margin: 0;
+    padding: 0;
+}
+
 ul.top{
     list-style-type: none;
     background-color: black;
     float: left;
-    margin: 0;
-    padding: 0;
     position: fixed;
     left: 0;
     top: 0;
@@ -100,11 +103,6 @@ ul.top li a.active{
     width: 100%;
 }
 
-iframe{
-    width: 80%; 
-    height: 500px;
-}
-
 img.black{
     display: none;
     opacity: 0;
@@ -136,6 +134,7 @@ button.about-x{
     top: calc(1% + 200px);
     right: 0;
     margin-right: calc(30% + 20px);
+    cursor: pointer;
 }
 
 button.about-x:hover{
@@ -155,4 +154,17 @@ p.about a:not(:hover){
     border-width: 0;
     border-style: none;
     font-size: 1em;
+}
+.container{
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+}
+.container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
 }

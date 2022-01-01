@@ -17,15 +17,16 @@
             <li><a href="index.html">INDEX</a></li>
             <li><a href="wlssmdy.html" class="active">网络上什么都有</a></li>
             <li><a href="qingyusama.png">晴雨Sama</a></li>
-            <li style="float: right;"><a onclick="about()">关于</a></li>
+            <li style="float: right; cursor: pointer;"><a onclick="about()">关于</a></li>
         </ul>
         <h1>网络上什么都有</h1>
         <i id="date"></i>
         <script>
-            for (let i = 0; i<=1000; i++) {
-                setTimeout(() => document.getElementById("date").innerHTML = new Date().toTimeString(), 1000 * i)
-            } 
-            setTimeout(() => window.location.reload(), 1000000)
+            function time() {
+                document.getElementById("date").innerHTML = new Date().toTimeString()
+                setTimeout(() => time(), 1000)
+            }
+            time()
         </script>
         <hr/>
         <ul>
@@ -33,9 +34,9 @@
             <li><a href="quit.cmd" download="退出老师控制脚本（双击运行）.cmd">退出老师控制脚本 下载</a></li>
             <li><a href="quit.zip" download="quit.zip">蓝屏一下？</a></li>
         </ul>
-        <iframe src="https://player.bilibili.com/player.html?aid=547944967&bvid=BV1aq4y1N7Vz&cid=406814475&page=1" border="0" frameborder="no" allowfullscreen="true">
+        <div class="container"><iframe src="https://player.bilibili.com/player.html?aid=547944967&bvid=BV1aq4y1N7Vz&cid=406814475&page=1" border="0" frameborder="no" allowfullscreen="true">
             <a href="https://www.bilibili.com/video/BV1aq4y1N7Vz"><img src="video.png"/></a>
-        </iframe>
+        </iframe></div>
         <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
         <img src="black.png" class="black" />
         <p class="about">只是个学生啦 <a href="https://space.bilibili.com/701675571?spm_id_from=333.1007.0.0">B站主页</a></p>
@@ -44,7 +45,7 @@
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(function(){
-            function footerPosition(){
+            function resize(){
                 $(".footer").removeClass("fixed-bottom");
                 var contentHeight = document.body.scrollHeight,//网页正文全文高度
                     winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
@@ -55,8 +56,8 @@
                     $(".footer").removeClass("fixed-bottom");
                 }
             }
-            footerPosition();
-            $(window).resize(footerPosition);
+            resize();
+            $(window).resize(resize);
         });
         function about() {
             $("img.black, p.about, button.about-x").show()

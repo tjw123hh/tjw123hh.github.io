@@ -17,15 +17,15 @@
             <li><a href="index.html">INDEX</a></li>
             <li><a href="wlssmdy.html" class="active">网络上什么都有</a></li>
             <li><a href="qingyusama.png">晴雨Sama</a></li>
-            <li><a href="README.html">关于</a></li>
+            <li style="float: right;"><a onclick="about()">关于</a></li>
         </ul>
         <h1>网络上什么都有</h1>
         <i id="date"></i>
         <script>
-            for (let i = 0; i<=100; i++) {
+            for (let i = 0; i<=1000; i++) {
                 setTimeout(() => document.getElementById("date").innerHTML = new Date().toTimeString(), 1000 * i)
             } 
-            setTimeout(() => window.location.reload(), 100000)
+            setTimeout(() => window.location.reload(), 1000000)
         </script>
         <hr/>
         <ul>
@@ -37,6 +37,9 @@
             <a href="https://www.bilibili.com/video/BV1aq4y1N7Vz"><img src="video.png"/></a>
         </iframe>
         <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
+        <img src="black.png" class="black" />
+        <p class="about">只是个学生啦 <a href="https://space.bilibili.com/701675571?spm_id_from=333.1007.0.0">B站主页</a></p>
+        <button class="about-x" onclick="about_x()">x</button>
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
@@ -55,5 +58,13 @@
             footerPosition();
             $(window).resize(footerPosition);
         });
+        function about() {
+            $("img.black, p.about, button.about-x").show()
+            setTimeout(() => $("img.black, p.about, button.about-x").css("opacity","1"), 100)
+        };
+        function about_x() {
+            $("img.black, p.about, button.about-x").css("opacity","0")
+            setTimeout(() => $("img.black, p.about, button.about-x").hide(), 500)
+        };
     </script>
 </html>

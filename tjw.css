@@ -156,11 +156,13 @@ p.about a:not(:hover){
     border-style: none;
     font-size: 1em;
 }
+
 .container{
     position: relative;
     width: 100%;
     padding-top: 56.25%;
 }
+
 .container iframe{
     position: absolute;
     top: 0;

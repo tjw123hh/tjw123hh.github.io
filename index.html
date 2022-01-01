@@ -27,6 +27,7 @@
         <div class="black"></div>
         <p class="about">只是个学生啦 <a href="https://space.bilibili.com/701675571?spm_id_from=333.1007.0.0">B站主页</a></p>
         <button class="about-x" onclick="about_x()">x</button>
+        <div class="about-title"><p>ABOUT.exe</p></div>
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
@@ -52,12 +53,14 @@
             $(window).resize(resize);
         });
         function about() {
-            $("div.black, p.about, button.about-x").show()
-            setTimeout(() => $("div.black, p.about, button.about-x").css("opacity","1"), 100)
+            $("div.black, p.about, button.about-x, div.about-title").show()
+            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").css("opacity","1"), 100)
+            setTimeout(() => $("p.about, button.about-x, div.about-title").css("top","200px"), 100)
         };
         function about_x() {
-            $("div.black, p.about, button.about-x").css("opacity","0")
-            setTimeout(() => $("div.black, p.about, button.about-x").hide(), 500)
+            $("div.black, p.about, button.about-x, div.about-title").css("opacity","0")
+            $("p.about, button.about-x, div.about-title").css("top","0")
+            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").hide(), 500)
         };
     </script>
 </html>

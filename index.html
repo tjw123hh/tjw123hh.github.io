@@ -24,7 +24,7 @@
             <li><a href="README.html">README</a></li>
         </ul>
         <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
-        <img src="black.png" class="black" />
+        <div class="black"></div>
         <p class="about">只是个学生啦 <a href="https://space.bilibili.com/701675571?spm_id_from=333.1007.0.0">B站主页</a></p>
         <button class="about-x" onclick="about_x()">x</button>
     </body>
@@ -52,12 +52,12 @@
             $(window).resize(resize);
         });
         function about() {
-            $("img.black, p.about, button.about-x").show()
-            setTimeout(() => $("img.black, p.about, button.about-x").css("opacity","1"), 100)
+            $("div.black, p.about, button.about-x").show()
+            setTimeout(() => $("div.black, p.about, button.about-x").css("opacity","1"), 100)
         };
         function about_x() {
-            $("img.black, p.about, button.about-x").css("opacity","0")
-            setTimeout(() => $("img.black, p.about, button.about-x").hide(), 500)
+            $("div.black, p.about, button.about-x").css("opacity","0")
+            setTimeout(() => $("div.black, p.about, button.about-x").hide(), 500)
         };
     </script>
 </html>

@@ -12,7 +12,7 @@
         <script src="jquery-3.6.0.min.js"></script>
     </head>
     <body>
-        <div style="height: 50px;" ></div>
+        <div class="top"></div>
         <ul class="top">
             <li><a href="index.html">INDEX</a></li>
             <li><a href="wlssmdy.html" class="active">网络上什么都有</a></li>
@@ -21,13 +21,6 @@
         </ul>
         <h1>网络上什么都有</h1>
         <i id="date"></i>
-        <script>
-            function time() {
-                document.getElementById("date").innerHTML = new Date().toTimeString()
-                setTimeout(() => time(), 1000)
-            }
-            time()
-        </script>
         <hr/>
         <ul>
             <li><a href="https://afdian.net/p/0164034c016c11ebafcb52540025c377">PCL2 下载</a></li>
@@ -44,8 +37,14 @@
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
+        function time() {
+            document.getElementById("date").innerHTML = new Date().toTimeString()
+            setTimeout(() => time(), 1000)
+        }
+        time()
         $(function(){
             function resize(){
+                $("div.top").height($("ul.top").height())
                 $(".footer").removeClass("fixed-bottom");
                 var contentHeight = document.body.scrollHeight,//网页正文全文高度
                     winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏

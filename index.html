@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="tjw.css"/>
     </head>
     <body>
-        <div style="height: 50px;" ></div>
+        <div class="top"></div>
         <ul class="top">
             <li><a href="index.html" class="active">INDEX</a></li>
             <li><a href="wlssmdy.html">网络上什么都有</a></li>
@@ -17,13 +17,6 @@
         </ul>
         <h1>INDEX.HTML</h1>
         <i id="date"></i>
-        <script>
-            function time() {
-                document.getElementById("date").innerHTML = new Date().toTimeString()
-                setTimeout(() => time(), 1000)
-            }
-            time()
-        </script>
         <hr/>
         <ul>
             <li><a href="wlssmdy.html">网络上什么都有</a></li>
@@ -37,8 +30,14 @@
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
+        function time() {
+            document.getElementById("date").innerHTML = new Date().toTimeString()
+            setTimeout(() => time(), 1000)
+        }
+        time()
         $(function(){
-            function footerPosition(){
+            function resize(){
+                $("div.top").height($("ul.top").height())
                 $(".footer").removeClass("fixed-bottom");
                 var contentHeight = document.body.scrollHeight,//网页正文全文高度
                     winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
@@ -49,8 +48,8 @@
                     $(".footer").removeClass("fixed-bottom");
                 }
             }
-            footerPosition();
-            $(window).resize(footerPosition);
+            resize();
+            $(window).resize(resize);
         });
         function about() {
             $("img.black, p.about, button.about-x").show()

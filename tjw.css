@@ -56,7 +56,7 @@ ul.top{
     left: 0;
     top: 0;
     width: 100%;
-    height: 50px;
+    overflow: hidden;
 }
 
 ul.top li{
@@ -74,7 +74,6 @@ ul.top li a{
 
 ul.top li a:link:not(.active),ul.top li a:visited:not(.active){
     background-color: black;
-
 }
 
 ul.top li a:hover:not(.active){

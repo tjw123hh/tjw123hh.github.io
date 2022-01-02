@@ -199,10 +199,10 @@ div#middle{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
-div.ads{
+div.ad{
     margin-left: 5%;
     position: relative;
     left: 0;
@@ -210,34 +210,56 @@ div.ads{
     bottom: 0;
 }
 
-div.ads img{
-    display: none;
+div.ad-box{
+    display: block;
     width: 250px;
     height: 250px;
+}
+
+img.ad, img.ad-ransition{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
 
-div.ads div.change-ad{
-    position: relative;
+div.change-ad{
+    position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
 }
 
-div.ads div.change-ad button{
+div.change-ad button{
     border: 3px solid gray;
-    border-radius: 2px;
-    font-size: 0.5em;
+    border-radius: 5px;
+    padding: 5px;
+    position: relative;
+    top: -20px;
+    margin: 0 10px;
 }
 
-div.ads div.change-ad button:hover{
+div.change-ad button:hover{
     background-color: black;
     border-color: white;
-    font-size: 1.5em;
+    color: white;
+    padding: 10px;
+    margin: -5px 5px;
+    border-radius: 10px;
 }
 
-div.ads div.change-ad button.active{
+div.change-ad button.active{
     background-color: #ff0000;
     border: 3px solid gray;
-    font-size: 0.5em;
+    padding: 5px;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+img.ad-ransition{
+    display: none;
+    opacity: 0;
 }

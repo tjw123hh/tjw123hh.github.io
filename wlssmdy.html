@@ -22,13 +22,12 @@
                 <li><a href="quit.cmd" download="退出老师控制脚本（双击运行）.cmd">退出老师控制脚本 下载</a></li>
                 <li><a href="quit.zip" download="quit.zip">蓝屏一下？</a></li>
             </ul>
-            <div class="ads">
-                <img style="display: block;" id="0" src="qingyusama.png" />
-                <img id="1" src="video.png" />
-                <img id="2" src="qingyusama.png" />
-                <img id="3" src="qingyusama.png" />
+            <div class="ad">
+                <div class="ad-box">
+                    <img class="ad" />
+                </div>
                 <div class="change-ad">
-                    <button id="00" class="active" onclick="change_ad(0,true)">1</button>
+                    <button id="00" onclick="change_ad(0,true)">1</button>
                     <button id="01" onclick="change_ad(1,true)">2</button>
                     <button id="02" onclick="change_ad(2,true)">3</button>
                     <button id="03" onclick="change_ad(3,true)">4</button>
@@ -52,17 +51,16 @@
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-        var ad_index = 0, num = 0
+        var ad_index, num = 0, ad_list = ["qingyusama.png", "video.png", "qingyusama.png", "video.png"]
         function time() {
             document.getElementById("date").innerHTML = new Date().toTimeString();
             setTimeout(() => time(), 1000);
             if (Math.round(new Date() / 1000) % 5 == num) {
                 if (ad_index < 3) {
-                    ad_index++;
+                    change_ad(ad_index + 1,false);
                 } else {
-                    ad_index=0;
+                    change_ad(0,false);
                 };
-                change_ad(ad_index,false);
             }
         }
         time()
@@ -87,8 +85,10 @@
         });
         function about() {
             $("div.black, p.about, button.about-x, div.about-title").show();
-            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").css("opacity","1"), 100);
-            setTimeout(() => $("p.about, button.about-x, div.about-title").css("top",Math.max(window.innerHeight*0.5 - 200,0)+"px"), 100);
+            setTimeout(() => {
+                $("div.black, p.about, button.about-x, div.about-title").css("opacity","1");
+                $("p.about, button.about-x, div.about-title").css("top",Math.max(window.innerHeight*0.5 - 200,0)+"px")
+            }, 100);
         };
         function about_x() {
             $("div.black, p.about, button.about-x, div.about-title").css("opacity","0");
@@ -100,16 +100,23 @@
                 num = Math.round(new Date() / 1000) % 5 - 1;
                 if(num==-1){num=4};
             }
-            this.ad_index = id;
-            for (var i = 0; i < 4; i++) {
-                if (i == id) {
-                    $("div.ads img#"+i).show();
-                    $("div.ads div.change-ad button#0"+i).addClass("active")
-                } else {
-                    $("div.ads img#"+i).hide();
-                    $("div.ads div.change-ad button#0"+i).removeClass("active")
-                };
-            };
+            $("div.change-ad button#0"+ad_index).removeClass("active")
+            ad_index = id;
+            var date = Date.now()
+            $("div.ad-box").append('<img class="ad-ransition" id="' + date + '"/>')
+            $("img.ad-ransition#" + date).show().attr("src", ad_list[id])
+            setTimeout(() => {
+                $("img.ad-ransition#" + date).css("opacity", 1);
+                $("img.ad").css("opacity", 0);
+            }, 100);
+            setTimeout(() => {
+                $("img.ad").css("opacity", 1).attr("src", ad_list[id])
+            }, 600);
+            setTimeout(() => {
+                $("img.ad-ransition#" + date).remove()
+            }, 1100);
+            $("div.change-ad button#0"+id).addClass("active")
         };
+        change_ad(0,true);
     </script>
 </html>

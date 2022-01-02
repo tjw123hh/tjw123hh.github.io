@@ -151,7 +151,7 @@ p.about a:hover{
     border-width: 5px;
     border-color: green;
     border-style: solid;
-    font-size: 5em;
+    font-size: 2em;
 }
 
 p.about a:not(:hover){

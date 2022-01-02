@@ -32,13 +32,13 @@
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         function time() {
-            document.getElementById("date").innerHTML = new Date().toTimeString()
-            setTimeout(() => time(), 1000)
+            document.getElementById("date").innerHTML = new Date().toTimeString();
+            setTimeout(() => time(), 1000);
         }
         time()
         $(function(){
             function resize(){
-                $("div.top").height($("ul.top").height())
+                $("div.top").height($("ul.top").height());
                 $(".footer").removeClass("fixed-bottom");
                 var contentHeight = document.body.scrollHeight,//网页正文全文高度
                     winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
@@ -48,19 +48,22 @@
                 } else {
                     $(".footer").removeClass("fixed-bottom");
                 }
+                if ($("p.about").css("opacity") == 1) {
+                    $("p.about, button.about-x, div.about-title").css("top",Math.max(window.innerHeight*0.5 - 200,0) + "px")
+                }
             }
             resize();
             $(window).resize(resize);
         });
         function about() {
-            $("div.black, p.about, button.about-x, div.about-title").show()
-            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").css("opacity","1"), 100)
-            setTimeout(() => $("p.about, button.about-x, div.about-title").css("top","200px"), 100)
+            $("div.black, p.about, button.about-x, div.about-title").show();
+            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").css("opacity","1"), 100);
+            setTimeout(() => $("p.about, button.about-x, div.about-title").css("top",Math.max(window.innerHeight*0.5 - 200,0) + "px"), 100);
         };
         function about_x() {
-            $("div.black, p.about, button.about-x, div.about-title").css("opacity","0")
-            $("p.about, button.about-x, div.about-title").css("top","0")
-            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").hide(), 500)
+            $("div.black, p.about, button.about-x, div.about-title").css("opacity","0");
+            $("p.about, button.about-x, div.about-title").css("top","0");
+            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").hide(), 500);
         };
     </script>
 </html>

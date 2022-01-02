@@ -18,11 +18,25 @@
         <h1>INDEX.HTML</h1>
         <i id="date"></i>
         <hr/>
-        <ul>
-            <li><a href="wlssmdy.html">网络上什么都有</a></li>
-            <li><a href="qingyusama.png">晴雨Sama</a></li>
-            <li><a href="README.html">README</a></li>
-        </ul>
+        <div id="middle">
+            <ul>
+                <li><a href="wlssmdy.html">网络上什么都有</a></li>
+                <li><a href="qingyusama.png">晴雨Sama</a></li>
+                <li><a href="README.html">README</a></li>
+            </ul>
+            <div class="ads">
+                <img style="display: block;" id="0" src="qingyusama.png" />
+                <img id="1" src="video.png" />
+                <img id="2" src="qingyusama.png" />
+                <img id="3" src="qingyusama.png" />
+                <div class="change-ad">
+                    <button id="00" class="active" onclick="change_ad(0,true)">1</button>
+                    <button id="01" onclick="change_ad(1,true)">2</button>
+                    <button id="02" onclick="change_ad(2,true)">3</button>
+                    <button id="03" onclick="change_ad(3,true)">4</button>
+                </div>
+            </div>
+        </div>
         <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
         <div class="black"></div>
         <p class="about">只是个学生啦 <a href="https://space.bilibili.com/701675571?spm_id_from=333.1007.0.0">B站主页</a></p>
@@ -31,11 +45,20 @@
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
+        var ad_index = 0, num = 0
         function time() {
             document.getElementById("date").innerHTML = new Date().toTimeString();
             setTimeout(() => time(), 1000);
-        }
-        time()
+            if (Math.round(new Date() / 1000) % 5 == num) {
+                if (ad_index < 3) {
+                    ad_index++;
+                } else {
+                    ad_index=0;
+                };
+                change_ad(ad_index,false);
+            }
+        };
+        time();
         $(function(){
             function resize(){
                 $("div.top").height($("ul.top").height());
@@ -64,6 +87,22 @@
             $("div.black, p.about, button.about-x, div.about-title").css("opacity","0");
             $("p.about, button.about-x, div.about-title").css("top","0");
             setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").hide(), 500);
+        };
+        function change_ad(id, reset) {
+            if (reset) {
+                num = Math.round(new Date() / 1000) % 5 - 1;
+                if(num==-1){num=4};
+            }
+            this.ad_index = id;
+            for (var i = 0; i < 4; i++) {
+                if (i == id) {
+                    $("div.ads img#"+i).show();
+                    $("div.ads div.change-ad button#0"+i).addClass("active")
+                } else {
+                    $("div.ads img#"+i).hide();
+                    $("div.ads div.change-ad button#0"+i).removeClass("active")
+                };
+            };
         };
     </script>
 </html>

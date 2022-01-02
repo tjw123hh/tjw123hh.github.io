@@ -169,6 +169,8 @@ div.about-title p{
     color: white;
     margin: 0;
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 div.about-title{
@@ -179,7 +181,7 @@ div.about-title{
     margin-top: 10px;
     left: calc(30% + 10px);
     right: calc(30% + 50px);
-    overflow-x: auto;
+    overflow: hidden;
     z-index: 2;
 }
 

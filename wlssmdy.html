@@ -12,6 +12,12 @@
         <script src="jquery-3.6.0.min.js"></script>
     </head>
     <body>
+        <ul class="top">
+            <li><a href="index.html">INDEX</a></li>
+            <li><a href="wlssmdy.html" class="active">网络上什么都有</a></li>
+            <li><a href="qingyusama.png" target="_blank">晴雨Sama</a></li>
+            <li style="float: right; cursor: pointer;"><a href="javascript:void(0);" onclick="about()">关于</a></li>
+        </ul>
         <div class="top"></div>
         <h1>网络上什么都有</h1>
         <i id="date"></i>
@@ -42,12 +48,6 @@
         <p class="about">只是个学生啦 <a href="https://space.bilibili.com/701675571?spm_id_from=333.1007.0.0">B站主页</a></p>
         <button class="about-x" onclick="about_x()">x</button>
         <div class="about-title"><p>ABOUT.exe</p></div>
-        <ul class="top">
-            <li><a href="index.html">INDEX</a></li>
-            <li><a href="wlssmdy.html" class="active">网络上什么都有</a></li>
-            <li><a href="qingyusama.png" target="_blank">晴雨Sama</a></li>
-            <li style="float: right; cursor: pointer;"><a href="javascript:void(0);" onclick="about()">关于</a></li>
-        </ul>
     </body>
     <script src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
@@ -115,7 +115,7 @@
             setTimeout(() => {
                 $("img.ad-ransition#" + date).remove()
             }, 1100);
-            $("div.change-ad button#0"+id).addClass("active")
+            $("div.change-ad button#0"+id).addClass("active")//过渡
         };
         change_ad(0,true);
     </script>

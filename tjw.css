@@ -47,8 +47,6 @@ li a:active {
 ul{
     margin: 0;
     padding: 0;
-    float: left;
-    width: 80%;
 }
 
 ul.top{
@@ -58,6 +56,7 @@ ul.top{
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 1;
 }
 
 ul.top li{
@@ -113,6 +112,7 @@ div.black{
     top: 0;
     background-size: cover;
     background-color: #00000080;
+    z-index: 2;
 }
 
 p.about{
@@ -126,6 +126,7 @@ p.about{
     padding: 10% 5%;
     border-top: 40px solid blue ;
     width: 30%;
+    z-index: 2;
 }
 
 button.about-x{
@@ -140,6 +141,7 @@ button.about-x{
     right: 0;
     margin-right: calc(30% + 20px);
     cursor: pointer;
+    z-index: 2;
 }
 
 button.about-x:hover{
@@ -173,7 +175,7 @@ div.about-title{
     display: none;
     opacity: 0;
     position: fixed;
-    top: 0px;
+    top: -50%;
     margin-top: 10px;
     left: calc(30% + 10px);
     right: calc(30% + 50px);
@@ -195,15 +197,7 @@ div.about-title{
     border-radius: 5px;
 }
 
-div#middle{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
 div.ad{
-    margin-left: 5%;
     position: relative;
     left: 0;
     right: 0;
@@ -262,5 +256,23 @@ div.change-ad button.active{
 img.ad-ransition{
     display: none;
     opacity: 0;
+}
+
+@media only screen and (min-width: 768px){  
+    div#middle{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    ul{
+        float: left;
+        width: 80%;
+    }
+
+    div.ad{
+        margin-left: 5%;
+    }
 }
 /*goooooooooooooooooooooood*/

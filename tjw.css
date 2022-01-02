@@ -180,6 +180,7 @@ div.about-title{
     left: calc(30% + 10px);
     right: calc(30% + 50px);
     overflow-x: auto;
+    z-index: 2;
 }
 
 .container{
@@ -258,7 +259,7 @@ img.ad-ransition{
     opacity: 0;
 }
 
-@media only screen and (min-width: 768px){  
+@media only screen and (min-width: 600px){  
     div#middle{
         display: flex;
         flex-direction: row;

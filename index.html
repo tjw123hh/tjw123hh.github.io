@@ -99,14 +99,13 @@
             $("img.ad-ransition#" + date).show().attr("src", ad_list[id])
             setTimeout(() => {
                 $("img.ad-ransition#" + date).css("opacity", 1);
-                $("img.ad").css("opacity", 0);
             }, 100);
             setTimeout(() => {
-                $("img.ad").css("opacity", 1).attr("src", ad_list[id])
+                $("img.ad").attr("src", ad_list[id])
             }, 600);
             setTimeout(() => {
                 $("img.ad-ransition#" + date).remove()
-            }, 1200);
+            }, 1100);
             $("div.change-ad button#0"+id).addClass("active")//过渡
         };
         change_ad(0,true);

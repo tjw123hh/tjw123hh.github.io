@@ -234,6 +234,7 @@ div.change-ad{
 
 div.change-ad button{
     border: 3px solid gray;
+    background-color: #ffffff80;
     border-radius: 5px;
     padding: 5px;
     position: relative;
@@ -243,7 +244,7 @@ div.change-ad button{
 }
 
 div.change-ad button:hover{
-    background-color: black;
+    background-color: #00000080;
     border-color: white;
     color: white;
     padding: 10px;
@@ -252,7 +253,7 @@ div.change-ad button:hover{
 }
 
 div.change-ad button.active{
-    background-color: #ff0000;
+    background-color: #ff000080;
     border: 3px solid gray;
     color: black;
     padding: 5px;

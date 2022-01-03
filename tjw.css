@@ -239,6 +239,7 @@ div.change-ad button{
     position: relative;
     top: -20px;
     margin: 0 10px;
+    cursor: pointer;
 }
 
 div.change-ad button:hover{
@@ -253,9 +254,11 @@ div.change-ad button:hover{
 div.change-ad button.active{
     background-color: #ff0000;
     border: 3px solid gray;
+    color: black;
     padding: 5px;
     margin: 0 10px;
     border-radius: 5px;
+    cursor: default;
 }
 
 img.ad-ransition{

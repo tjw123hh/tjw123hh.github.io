@@ -49,9 +49,16 @@ if __name__ == "__main__":
         os.popen(r'E:&cd E:\Users\Administrator\Desktop\tjw123hh.github.io&git add .&git commit -m "auto"&git push')
         print(get_time(), "检测到并已尝试解决问题")
     serversocket.listen(5)
-    while True:
-        t_name = "t" + str(time.time())
-        globals()[t_name] = threading.Thread(target=listen, args=serversocket.accept())
-        globals()[t_name].start()
-        globals()[t_name].join()
+    def create_thread(i):
+        while True:
+            global serversocket
+            globals()[t_name + "_" + i] = threading.Thread(target=listen, args=serversocket.accept())
+            globals()[t_name + "_" + i].start()
+            globals()[t_name + "_" + i].join()
+    t_name = "t" + str(time.time())
+    for i in range(5):
+        globals()["creater" + str(i)] = threading.Thread(target=create_thread, args=(str(i)))
+        globals()["creater" + str(i)].start()
+        
+        
         

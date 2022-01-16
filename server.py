@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-import socket, time
-import threading
+import socket, time, re, threading, os, requests
 def get_time():
     return time.strftime("[%Y-%m-%d %H:%M:%S]", time.localtime())
 
@@ -37,9 +36,18 @@ def listen(clientsocket: socket.socket, addr) -> None:
 
 if __name__ == "__main__":
     serversocket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM) 
-    host = "2409:8a28:4090:a040:3174:714c:31a1:9f0c"
+    host = re.findall(r"(([a-f0-9]{1,4}:){7}[a-f0-9]{1,4})", os.popen("ipconfig /all").read(), re.I)[0][0]
     serversocket.bind((host, 10000))
     print(get_time(), "服务器已开启于 %s" % host + "::10000")
+    print(get_time(), "开始自动检测 (tjw123hh.github.io/ip) IP地址是否正确")
+    _host = requests.get('https://tjw123hh.github.io/ip.txt').text
+    if _host == host:
+        print(get_time(), "检测完毕, 未发现错误")
+    else:
+        with open(r"E:\Users\Administrator\Desktop\tjw123hh.github.io\ip.txt", "w") as file:
+            file.write(host)
+        os.popen(r'E:&cd E:\Users\Administrator\Desktop\tjw123hh.github.io&git add .&git commit -m "auto"&git push')
+        print(get_time(), "检测到并已尝试解决问题")
     serversocket.listen(5)
     while True:
         t_name = "t" + str(time.time())

@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-print("欢迎使用 CTS by tjw123hh!")#Chat with Tjw's Server
-
-
-import socket, threading, time, os, re
+import socket, threading, time, os, re, requests
 def get_time() -> str:
     return time.strftime("[%Y-%m-%d %H:%M:%S]", time.localtime())
+print(get_time(), "欢迎使用 CTS by tjw123hh!")#Chat with Tjw's Server
 
 # 创建 socket 对象
 s_send = socket.socket(socket.AF_INET6, socket.SOCK_STREAM) 
@@ -17,7 +15,13 @@ s_recv.bind((host, 9999))
 
 # 连接服务，指定主机和端口
 try:
-    server_host = "2409:8a28:4090:a040:3174:714c:31a1:9f0c"
+    server_host = requests.get('https://tjw123hh.github.io/ip.txt').text
+    print(get_time(), "已获取服务器IP: " + server_host)
+except BaseException as e:
+    print(get_time(), "获取服务器IP时出现问题: " + str(e))
+    input("按下 Enter 键以退出... ")
+    os._exit(0)
+try:
     s_send.connect((server_host,10000))
     print(get_time(), "成功连接到服务器")
     print(get_time(), "你的IP为: " + host)
@@ -42,7 +46,7 @@ def send(s_send: socket.socket) -> None:
             while True:
                 try:
                     s_send.send(("text:" + input(get_time() + " 你: ")).encode("utf-8"))
-                except ConnectionResetError:
+                except:
                     print(get_time(), "发送失败, 服务器已关闭")
                     input("按下 Enter 键以退出... ")
                     os._exit(0)

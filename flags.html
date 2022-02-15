@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>国旗或区旗矢量图</title>
+        <link rel="stylesheet" type="text/css" href="tjw.css"/>
+        <link rel="shortcut icon" type="image/png" href="qingyusama.png"/>
+        <!--[if lt IE 9]>
+            <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+        <![endif]-->
+        <script src="jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <ul class="top">
+            <li><a href="index.html">INDEX</a></li>
+            <li><a href="wlssmdy.html">网络上什么都有</a></li>
+            <li><a href="qingyusama.png" target="_blank">晴雨Sama</a></li>
+            <li><a href="flags.html" target="_blank" class="active">国旗或区旗矢量图</a></li>
+            <li style="float: right; cursor: pointer;"><a href="javascript:void(0);" onclick="about()">关于</a></li>
+        </ul>
+        <div class="top"></div>
+        <h1>国旗或区旗矢量图 (4:3, 来自奥林匹克官网)</h1>
+        <i id="date"></i>
+        <hr/>
+        <div id="middle">
+            <ul class="flags"></ul>
+            <div class="ad">
+                <div class="ad-box">
+                    <img class="ad" />
+                </div>
+                <div class="change-ad">
+                    <button id="00" onclick="change_ad(0,true)">1</button>
+                    <button id="01" onclick="change_ad(1,true)">2</button>
+                    <button id="02" onclick="change_ad(2,true)">3</button>
+                    <button id="03" onclick="change_ad(3,true)">4</button>
+                </div>
+            </div>
+        </div>
+        <i class="footer">Copyright &copy; 2021 tjw123hh. All Rights Reserved.</i>
+        <div class="black"></div>
+        <p class="about">只是个学生啦<br /><a href="https://space.bilibili.com/701675571?spm_id_from=333.1007.0.0">B站主页</a></p>
+        <button class="about-x" onclick="about_x()">x</button>
+        <div class="about-title"><p>ABOUT.exe</p></div>
+    </body>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        var ad_index, num = 0, ad_list = ["qingyusama.png", "chong.jpg", "qingyusama.png", "video.png"]
+        function time() {
+            document.getElementById("date").innerHTML = new Date().toTimeString();
+            setTimeout(() => time(), 1000);
+            if (Math.round(new Date() / 1000) % 5 == num) {
+                if (ad_index < 3) {
+                    change_ad(ad_index + 1,false);
+                } else {
+                    change_ad(0,false);
+                };
+            }
+        }
+        time()
+        $(function(){
+            function resize(){
+                $("div.top").height($("ul.top").height());
+                $(".footer").removeClass("fixed-bottom");
+                var contentHeight = document.body.scrollHeight,//网页正文全文高度
+                    winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
+                if(!((contentHeight + 120 + $(".footer").outerHeight(true)) > winHeight)){
+                    //当网页正文高度大于可视窗口高度时，为footer添加类fixed-bottom
+                    $(".footer").addClass("fixed-bottom");
+                } else {
+                    $(".footer").removeClass("fixed-bottom");
+                }
+                if ($("p.about").css("opacity") == 1) {
+                    $("p.about, button.about-x, div.about-title").css("top",Math.max(window.innerHeight*0.5 - 200,0)+"px")
+                }
+            }
+            resize();
+            $(window).resize(resize);
+        });
+        function about() {
+            $("div.black, p.about, button.about-x, div.about-title").show();
+            setTimeout(() => {
+                $("div.black, p.about, button.about-x, div.about-title").css("opacity","1");
+                $("p.about, button.about-x, div.about-title").css("top",Math.max(window.innerHeight*0.5 - 200,0)+"px")
+            }, 100);
+        };
+        function about_x() {
+            $("div.black, p.about, button.about-x, div.about-title").css("opacity","0");
+            $("p.about, button.about-x, div.about-title").css("top","-50%");
+            setTimeout(() => $("div.black, p.about, button.about-x, div.about-title").hide(), 500);
+        };
+        function change_ad(id, reset) {
+            if (reset) {
+                num = Math.round(new Date() / 1000) % 5 - 1;
+                if(num==-1){num=4};
+            }
+            $("div.change-ad button#0"+ad_index).removeClass("active")
+            ad_index = id;
+            var date = Date.now()
+            $("div.ad-box").append('<img class="ad-ransition" id="' + date + '"/>')
+            $("img.ad-ransition#" + date).show().attr("src", ad_list[id])
+            setTimeout(() => {
+                $("img.ad-ransition#" + date).css("opacity", 1);
+            }, 100);
+            setTimeout(() => {
+                $("img.ad").attr("src", ad_list[id])
+            }, 600);
+            setTimeout(() => {
+                $("img.ad-ransition#" + date).remove()
+            }, 1200);
+            $("div.change-ad button#0"+id).addClass("active")//过渡
+        };
+        change_ad(0,true);
+        var flags=[
+            "Andorra",
+            "United Arab Emirates",
+            "Afghanistan",
+            "Antigua and Barbuda",
+            "Anguilla",
+            "Albania",
+            "Armenia",
+            "Angola",
+            "Antarctica",
+            "Argentina",
+            "American Samoa",
+            "Austria",
+            "Australia",
+            "Aruba",
+            "Åland Islands",
+            "Azerbaijan",
+            "Bosnia and Herzegovina",
+            "Barbados",
+            "Bangladesh",
+            "Belgium",
+            "Burkina Faso",
+            "Bulgaria",
+            "Bahrain",
+            "Burundi",
+            "Benin",
+            "Saint Barthélemy",
+            "Bermuda",
+            "Brunei Darussalam",
+            "Bolivia (Plurinational State of)",
+            "Bonaire, Sint Eustatius and Saba",
+            "Brazil",
+            "Bahamas",
+            "Bhutan",
+            "Bouvet Island",
+            "Botswana",
+            "Belarus",
+            "Belize",
+            "Canada",
+            "Cocos (Keeling) Islands",
+            "Congo, Democratic Republic of the",
+            "Central African Republic",
+            "Congo",
+            "Switzerland",
+            "Côte d'Ivoire",
+            "Cook Islands",
+            "Chile",
+            "Cameroon",
+            "China",
+            "Colombia",
+            "Costa Rica",
+            "Cuba",
+            "Cabo Verde",
+            "Curaçao",
+            "Christmas Island",
+            "Cyprus",
+            "Czechia",
+            "Germany",
+            "Djibouti",
+            "Denmark",
+            "Dominica",
+            "Dominican Republic",
+            "Algeria",
+            "Ecuador",
+            "Estonia",
+            "Egypt",
+            "Western Sahara",
+            "Eritrea",
+            "Spain",
+            "Ethiopia",
+            "Finland",
+            "Fiji",
+            "Falkland Islands (Malvinas)",
+            "Micronesia (Federated States of)",
+            "Faroe Islands",
+            "France",
+            "Gabon",
+            "United Kingdom of Great Britain and Northern Ireland",
+            "Grenada",
+            "Georgia",
+            "French Guiana",
+            "Guernsey",
+            "Ghana",
+            "Gibraltar",
+            "Greenland",
+            "Gambia",
+            "Guinea",
+            "Guadeloupe",
+            "Equatorial Guinea",
+            "Greece",
+            "South Georgia and the South Sandwich Islands",
+            "Guatemala",
+            "Guam",
+            "Guinea-Bissau",
+            "Guyana",
+            "Hong Kong",
+            "Heard Island and McDonald Islands",
+            "Honduras",
+            "Croatia",
+            "Haiti",
+            "Hungary",
+            "Indonesia",
+            "Ireland",
+            "Israel",
+            "Isle of Man",
+            "India",
+            "British Indian Ocean Territory",
+            "Iraq",
+            "Iran (Islamic Republic of)",
+            "Iceland",
+            "Italy",
+            "Jersey",
+            "Jamaica",
+            "Jordan",
+            "Japan",
+            "Kenya",
+            "Kyrgyzstan",
+            "Cambodia",
+            "Kiribati",
+            "Comoros",
+            "Saint Kitts and Nevis",
+            "Korea (Democratic People's Republic of)",
+            "Korea, Republic of",
+            "Kuwait",
+            "Cayman Islands",
+            "Kazakhstan",
+            "Lao People's Democratic Republic",
+            "Lebanon",
+            "Saint Lucia",
+            "Liechtenstein",
+            "Sri Lanka",
+            "Liberia",
+            "Lesotho",
+            "Lithuania",
+            "Luxembourg",
+            "Latvia",
+            "Libya",
+            "Morocco",
+            "Monaco",
+            "Moldova, Republic of",
+            "Montenegro",
+            "Saint Martin (French part)",
+            "Madagascar",
+            "Marshall Islands",
+            "North Macedonia",
+            "Mali",
+            "Myanmar",
+            "Mongolia",
+            "Macao",
+            "Northern Mariana Islands",
+            "Martinique",
+            "Mauritania",
+            "Montserrat",
+            "Malta",
+            "Mauritius",
+            "Maldives",
+            "Malawi",
+            "Mexico",
+            "Malaysia",
+            "Mozambique",
+            "Namibia",
+            "New Caledonia",
+            "Niger",
+            "Norfolk Island",
+            "Nigeria",
+            "Nicaragua",
+            "Netherlands",
+            "Norway",
+            "Nepal",
+            "Nauru",
+            "Niue",
+            "New Zealand",
+            "Oman",
+            "Panama",
+            "Peru",
+            "French Polynesia",
+            "Papua New Guinea",
+            "Philippines",
+            "Pakistan",
+            "Poland",
+            "Saint Pierre and Miquelon",
+            "Pitcairn",
+            "Puerto Rico",
+            "Palestine, State of",
+            "Portugal",
+            "Palau",
+            "Paraguay",
+            "Qatar",
+            "Réunion",
+            "Romania",
+            "Serbia",
+            "Russian Federation",
+            "Rwanda",
+            "Saudi Arabia",
+            "Solomon Islands",
+            "Seychelles",
+            "Sudan",
+            "Sweden",
+            "Singapore",
+            "Saint Helena, Ascension and Tristan da Cunha",
+            "Slovenia",
+            "Svalbard and Jan Mayen",
+            "Slovakia",
+            "Sierra Leone",
+            "San Marino",
+            "Senegal",
+            "Somalia",
+            "Suriname",
+            "South Sudan",
+            "Sao Tome and Principe",
+            "El Salvador",
+            "Sint Maarten (Dutch part)",
+            "Syrian Arab Republic",
+            "Eswatini",
+            "Turks and Caicos Islands",
+            "Chad",
+            "French Southern Territories",
+            "Togo",
+            "Thailand",
+            "Tajikistan",
+            "Tokelau",
+            "Timor-Leste",
+            "Turkmenistan",
+            "Tunisia",
+            "Tonga",
+            "Turkey",
+            "Trinidad and Tobago",
+            "Tuvalu",
+            "Taiwan, Province of China",
+            "Tanzania, United Republic of",
+            "Ukraine",
+            "Uganda",
+            "United States Minor Outlying Islands",
+            "United States of America",
+            "Uruguay",
+            "Uzbekistan",
+            "Holy See",
+            "Saint Vincent and the Grenadines",
+            "Venezuela (Bolivarian Republic of)",
+            "Virgin Islands (British)",
+            "Virgin Islands (U.S.)",
+            "Viet Nam",
+            "Vanuatu",
+            "Wallis and Futuna",
+            "Samoa",
+            "Yemen",
+            "Mayotte",
+            "South Africa",
+            "Zambia",
+            "Zimbabwe"]
+        for (let index = 0; index < flags.length; index++) {
+            $("ul.flags").append('<li>'+flags[index]+'</li>')
+            $("ul.flags").append('<li><img width=80% src="flags/'+flags[index]+'.svg"/></li>')
+        }
+    </script>
+</html>

@@ -111,7 +111,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                   #sidebar-checkbox:checked ~ .sidebar-toggle,
                   .sidebar,
                   .sidebar-toggle:active {
-                    background-color: var(--theme-base-color);
+                    background-color: #75b5aa;
                   }
                 </style>
               - | # 修复点击侧边栏按钮回到顶部的问题
@@ -371,10 +371,16 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
             - | # 链接样式修正
               <style>
                 .container a,
-                .related-posts li a:hover {
-                  color: inherit;
+                .related-posts li a,
+                .reveal a {
+                  color: inherit !important;
                   text-decoration: none;
-                  border-bottom: 1px solid var(--theme-base-color);
+                  border-bottom: 1px solid #75b5aa;
+                  transition: color .15s ease;
+                }
+                :is(.container, .related-posts li, .reveal) a:is(:hover, :focus){
+                    color: #75b5aa !important;
+                    border-bottom: 2px solid #75b5aa;
                 }
               </style>
         page:
@@ -545,7 +551,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
               append: | # 引入live2d看板娘！不需要可以把这一项都删掉
                 <link
                   rel="stylesheet"
-                  href="https://cdn.jsdelivr.net/gh/Dreamer-Paul/Pio/static/pio.min.css"
+                  href="https://cdn.jsdelivr.net/gh/Dreamer-Paul/Pio@2.4/static/pio.min.css"
                 />
                 <style>
                   @media only print {
@@ -556,7 +562,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 </style>
                 <script
                   async="async"
-                  src="https://cdn.jsdelivr.net/combine/gh/Dreamer-Paul/Pio/static/l2d.min.js,gh/Dreamer-Paul/Pio/static/pio.min.js"
+                  src="https://cdn.jsdelivr.net/combine/gh/Dreamer-Paul/Pio@2.4/static/l2d.min.js,gh/Dreamer-Paul/Pio@2.4/static/pio.min.js"
                   onload='
                     let pio_container = document.createElement("div");
                     pio_container.classList.add("pio-container");
@@ -693,12 +699,6 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
               }
               .reveal .slides {
                 text-align: left;
-              }
-              .reveal a,
-              .reveal a:hover,
-              .reveal a:focus {
-                color: inherit;
-                border-bottom: 1px solid var(--theme-base-color);
               }
             </style>
           append: |

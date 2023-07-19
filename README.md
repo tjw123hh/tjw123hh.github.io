@@ -6,7 +6,7 @@
 
 ## 联系
 
-- [这个网站](https://tjw123hh.github.io)
+- [<b>这个网站</b>](https://tjw123hh.github.io)
 - QQ
   - **3245813583**
 - E-mail
@@ -31,5 +31,5 @@ vvv
 - **Git**：会查资料（
 - **Kate**：比 VS Code 难用些，但是摆脱了 Chromium 内核
 - **Weblate**：翻译网站
-  - Prism Launcher：~~基于基于 MultiMC 的 PolyMC 的~~ Minecraft 启动器
+  - [<b>Prism Launcher</b>](https://prismlauncher.org/)：~~基于基于 MultiMC 的 PolyMC 的~~ Minecraft 启动器
     - 参与了部分（[简中](https://hosted.weblate.org/projects/prismlauncher/launcher/zh_Hans/)、[繁中](https://hosted.weblate.org/projects/prismlauncher/launcher/zh_Hant/)）翻译\~

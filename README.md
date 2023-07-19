@@ -20,14 +20,14 @@ vvv
 
 - **C/C++**：可能要学吧（
 - **Python**：熟悉
-  **wxPython**：会用
+  - **wxPython**：会用
 - **Rust**：熟悉
 - **GDScript**：熟悉
+- **Linux Shell**：会查资料（
 
 vvv
 
 - **Markdown**：会用
-- **Linux Shell**：会查资料（
 - **Git**：会查资料（
 - **Kate**：比 VS Code 难用些，但是摆脱了 Chromium 内核
 - **Weblate**：翻译网站

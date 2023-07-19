@@ -2,9 +2,11 @@
 
 欢迎访问我的主页！下面向你介绍一下我吧\~
 
-]]]
+<!--SlideH--->
 
 ## 联系
+
+<!--SlideV--->
 
 - [<b>这个网站</b>](https://tjw123hh.github.io)
 - QQ
@@ -12,11 +14,11 @@
 - E-mail
   - **[tjw123hh@outlook.com](mailto:tjw123hh@outlook.com)**
 
-]]]
+<!--SlideH--->
 
 ## 工具链
 
-vvv
+<!--SlideV--->
 
 - **C/C++**：可能要学吧（
 - **Python**：熟悉
@@ -25,7 +27,7 @@ vvv
 - **GDScript**：熟悉
 - **Linux Shell**：会查资料（
 
-vvv
+<!--SlideV--->
 
 - **Markdown**：会用
 - **Git**：会查资料（

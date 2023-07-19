@@ -683,9 +683,9 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
           append_to_section_tag:
             - key: data-markdown
             - key: data-separator # 水平展示页分隔符
-              value: "]]]"
+              value: "<!--SlideH--->"
             - key: data-separator-vertical # 垂直展示页分隔符
-              value: "vvv"
+              value: "<!--SlideV--->"
             - key: data-background-color
               value: "White"
           prepend: |
@@ -718,7 +718,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
 
 compress_html: # <https://github.com/penibelst/jekyll-compress-html>
   clippings: all
-  comments: all
+  comments: ["<!-- ", " -->"]
   endings: all
   ignore:
     envs: []

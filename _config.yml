@@ -683,9 +683,9 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
           append_to_section_tag:
             - key: data-markdown
             - key: data-separator # 水平展示页分隔符
-              value: "<!--SlideH--->"
+              value: "<!--SlideH-->"
             - key: data-separator-vertical # 垂直展示页分隔符
-              value: "<!--SlideV--->"
+              value: "<!--SlideV-->"
             - key: data-background-color
               value: "White"
           prepend: |

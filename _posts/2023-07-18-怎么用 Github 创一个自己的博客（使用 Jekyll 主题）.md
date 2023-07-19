@@ -105,7 +105,7 @@ tags:
     - `merger`：基于 merger 的打赏页。<br />
     [我的捐赠页](/merger/)
 
-    - `home`：就是主页的幻灯片（按`Esc`键有惊喜
+    - `home`：就是主页的幻灯片（按`Esc`键有惊喜<br />
     [我的主页](/)
         > 从 `v3.1.0` 版本开始，`layout: home` 被我重写，基于 [hakimel/reveal.js](https://github.com/hakimel/reveal.js) 实现了一个简洁的展示页面，既可以作为博客的封面，也可以用作 presentation！
 

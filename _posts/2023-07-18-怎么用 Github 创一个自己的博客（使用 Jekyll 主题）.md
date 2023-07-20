@@ -27,7 +27,7 @@ tags:
 你可以去网上搜（），但是推荐到 [Jekyll Themes](http://jekyllthemes.org/) 这个网站上找。
 
 ~~网站长这样：~~<br />
-![网站长这样](/assets/1.png)<br />
+![网站长这样](/assets/1.png)
 <center>^^^服务器没设置好：只能用 HTTP 不能用 HTTPS </center><br />
 
 网站其实长这样： <br />
@@ -105,7 +105,7 @@ tags:
     - `merger`：基于 merger 的打赏页。<br />
     [我的捐赠页](/merger/)
 
-    - `home`：就是主页的幻灯片（按`Esc`键有惊喜<br />
+    - `home`：就是主页的幻灯片（按<kbd>Esc</kbd>键有惊喜<br />
     [我的主页](/)
         > 从 `v3.1.0` 版本开始，`layout: home` 被我重写，基于 [hakimel/reveal.js](https://github.com/hakimel/reveal.js) 实现了一个简洁的展示页面，既可以作为博客的封面，也可以用作 presentation！
 

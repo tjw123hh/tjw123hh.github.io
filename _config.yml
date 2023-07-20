@@ -113,6 +113,10 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                   .sidebar,
                   .sidebar-toggle:active {
                     background-color: #75b5aa;
+                    transition: all 0.5s ease-in-out;
+                  }
+                  .sidebar-toggle {
+                    transition: all 0.5s ease-in-out;
                   }
                 </style>
               - | # 修复点击侧边栏按钮回到顶部的问题

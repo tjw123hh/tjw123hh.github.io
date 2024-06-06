@@ -10,3 +10,5 @@ gem "jekyll-feed", "~> 0.17.0"
 gem "jekyll-redirect-from", "~> 0.16.0"
 
 gem "jekyll-sitemap", "~> 1.4"
+
+gem "json" #For Arch Linux (see https://github.com/jekyll/jekyll/issues/9545)

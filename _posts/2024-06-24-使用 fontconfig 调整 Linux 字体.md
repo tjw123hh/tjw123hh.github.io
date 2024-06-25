@@ -96,9 +96,9 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 因此，我们也需要通过识别语言的方式切换字体来改变引号的全半角（见[#根据语言环境选择不同字体](#根据语言环境选择不同字体)）。
 
 示例（仅在字体正确配置时可用）：
-<span style="font-family: sans-serif;">‘’“” 默认</span><br />
-<span style="font-family: sans-serif;" lang="zh-CN">‘’“” 中文（中国） lang=zh-CN</span><br />
-<span style="font-family: sans-serif;" lang="en">‘’“” 英文 lang=en</span>
+> <span style="font-family: sans-serif;">‘’“” 默认</span><br />
+> <span style="font-family: sans-serif;" lang="zh-CN">‘’“” 中文（中国） lang=zh-CN</span><br />
+> <span style="font-family: sans-serif;" lang="en">‘’“” 英文 lang=en</span>
 
 ## 使用
 

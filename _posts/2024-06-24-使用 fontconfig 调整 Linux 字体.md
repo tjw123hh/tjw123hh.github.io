@@ -46,8 +46,8 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 - 等宽字体（monospace）：就是写代码时经常用到的英文字符（半角字符）宽度一致、中文字符（全角字符）宽度是英文字符（半角字符）两倍的字体。因为一些程序（如终端）只能使用这种字体，以及显示代码的需求，所以在此处独立出来。
 
 示例：
-> <span style="font-family: serif;">这是衬线体。This is serif.</span>
-> <span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span>
+> <span style="font-family: serif;">这是衬线体。This is serif.</span><br />
+> <span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span><br />
 > <span style="font-family: monospace;">这是等宽字体。This is monospace.</span>
 
 ### 通用字族
@@ -57,9 +57,9 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 通用字族可以在任何调用字族的地方使用，例如上面和下面的示例都是用内联样式`font-family`中使用通用字族名得到的。但如果你的 fontconfig 或浏览器设置不正确，就无法正确显示。
 
 示例：
-> <span style="font-family: system-ui;">这是系统界面字体。This is system-ui.</span>
-> <span style="font-family: serif;">这是衬线体。This is serif.</span>
-> <span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span>
+> <span style="font-family: system-ui;">这是系统界面字体。This is system-ui.</span><br />
+> <span style="font-family: serif;">这是衬线体。This is serif.</span><br />
+> <span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span><br />
 > <span style="font-family: monospace;">这是等宽字体。This is monospace.</span>
 
 ### 合成字体
@@ -77,12 +77,12 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 但许多软件没有针对各个语言的独立字体设置，我们需要正确根据语言选择不同字体变体显示文字（见[#根据语言环境选择不同字体](#根据语言环境选择不同字体)）。
 
 示例（仅在字体正确配置时可用，使用简体中文汉字）：
-> 遍角次亮采之关复门 默认
-> <span lang="zh-CN">遍角次亮采之关复门 中文（中国） lang=zh-CN</span>
-> <span lang="zh-TW">遍角次亮采之关复门 中文（台湾） lang=zh-TW</span>
-> <span lang="zh-HK">遍角次亮采之关复门 中文（香港） lang=zh-HK</span>
-> <span lang="ja">遍角次亮采之关复门 日文 lang=ja</span>
-> <span lang="ko">遍角次亮采之关复门 韩文 lang=ko</span>
+> 遍角次亮采之关复门 默认<br />
+> <span lang="zh-CN">遍角次亮采之关复门 中文（中国） lang=zh-CN</span><br />
+> <span lang="zh-TW">遍角次亮采之关复门 中文（台湾） lang=zh-TW</span><br />
+> <span lang="zh-HK">遍角次亮采之关复门 中文（香港） lang=zh-HK</span><br />
+> <span lang="ja">遍角次亮采之关复门 日文 lang=ja</span><br />
+> <span lang="ko">遍角次亮采之关复门 韩文 lang=ko</span><br />
 > <span lang="ko-KP">遍角次亮采之关复门 朝鲜文 lang=ko-KP</span>
 
 ### 引号的全半角问题
@@ -94,8 +94,8 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 因此，我们也需要通过识别语言的方式切换字体来改变引号的全半角（见[#根据语言环境选择不同字体](#根据语言环境选择不同字体)）。
 
 示例（仅在字体正确配置时可用）：
-> ‘’“” 默认
-> <span lang="zh-CN">‘’“” 中文（中国） lang=zh-CN</span>
+> ‘’“” 默认<br />
+> <span lang="zh-CN">‘’“” 中文（中国） lang=zh-CN</span><br />
 > <span lang="en">‘’“” 英文 lang=en</span>
 
 ## 使用
@@ -305,10 +305,10 @@ fc-list :medium:lang=zh-CN
 - `<edit>`：修改。
   - 元素属性
     - `name`：需要修改的属性。
-    - `mode`：修改模式。这些模式都有自己的变种（以括号标示），若使用变种或没有相应（`name`属性相同）`<test>`，执行“**||**”后面的操作，否则执行前者。为了获得更高的优先级，通常使用强引用＋`prepend`。
-      - `"assign"`（`"assign_replace"`）：替换相应`<test>`检测到的值 **||** 替换整个列表。
-      - `"prepend"`（`"prepend_first"`）和`"append"`（`"append_last"`）：分别在相应`<test>`检测到的值前面、后面插入值 **||** 在列表最前、最后插入值。
-      - `"delete"`（`"delete_all"`）：删除相应`<test>`检测到的值 **||** 删除整个列表。
+    - `mode`：修改模式。这些模式都有自己的变种（以括号标示），若使用变种或没有相应（`name`属性相同）`<test>`，执行“**//**”后面的操作，否则执行前者。为了获得更高的优先级，通常使用强引用＋`prepend`。
+      - `"assign"`（`"assign_replace"`）：替换相应`<test>`检测到的值 **//** 替换整个列表。
+      - `"prepend"`（`"prepend_first"`）和`"append"`（`"append_last"`）：分别在相应`<test>`检测到的值前面、后面插入值 **//** 在列表最前、最后插入值。
+      - `"delete"`（`"delete_all"`）：删除相应`<test>`检测到的值 **//** 删除整个列表。
     - `binding`：绑定模式。
       - `"strong"`和`"weak"`：指定强绑定和弱绑定。
       - `"same"`：与相应`<test>`检测到的值的绑定模式相同。

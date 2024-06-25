@@ -325,16 +325,16 @@ fc-list :medium:lang=zh-CN
 同样使用`<match>`元素，语法与匹配阶段完全相同，只是操控的属性不同。这个阶段我们主要操控渲染相关的属性：
 
 - `hinting`*(bool)*：启用或禁用字体微调。字体微调指使用数学指令来调整轮廓字体的显示，使其与像素对齐，让字看起来更加清晰，建议设置为`true`。
-- `autohint`*(bool)*：使用自动微调代替内嵌微调。内嵌微调是指根据字体自带的算法微调；自动微调是指使用渲染器的自动微调功能进行字体微调。由于字体自带的微调通常比自动微调好，建议设置为`false`。
+- `autohint`*(bool)*：使用自动微调代替内嵌微调。内嵌微调是指根据字体自带的算法微调；自动微调是指使用渲染器的自动微调功能进行字体微调。由于字体自带的微调通常比自动微调好（如果字体带有），建议设置为`false`。［可参照[Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[截图存档（2024-04-28）](/assets/4.png){:target="_blank"}）进行对比］
 - `hintstyle`*(int)*：微调的程度，可设置为：`hintnone`或`0`（关闭）、`hintslight`或`1`（轻度）、`hintmedium`或`2`（中度）、`hintfull`或`3`（完全）。过度的字体微调会使字体失去字体特点，但显示得更加清晰。建议根据自身情况设置。
 - `antialias`*(bool)*：抗锯齿。建议设置为`true`。
-- `lcdfilter`*(int)*：LCD filter 用来消除文字的彩色边纹，此属性设定它的风格［可参照[Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[互联网档案馆存档](https://web.archive.org/web/20240428161433/https://spasche.net/files/lcdfiltering/)）进行对比］，可设置为：
+- `lcdfilter`*(int)*：LCD filter 用来消除文字的彩色边纹，此属性设定它的风格［可参照[Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[截图存档（2024-04-28）](/assets/4.png){:target="_blank"}）进行对比］，可设置为：
   - `lcdnone`或`0`：彻底关闭 LCD filter，不推荐，它会导致笔画边缘出现彩色边纹。
   - `lcddefault`或`1`：最大限度地消除彩色边纹，但是可能会增加笔画的模糊程度。多数场合这是最佳选择。
   - `lcdlight`或`2`：减轻笔画的模糊程度，但不能最大限度的消除彩色边纹。少数场合也许效果更好。
   - `lcdlegacy`或`3`：为了与传统的`"libXft color filter"`兼容而设置，未来会被删除。
 - `rgba`：指定 LCD 子像素的排列顺序，为了次像素渲染。分为：`unknown`或`0`（未知）、`rgb`或`1`、`bgr`或`2`、`vrgb`或`3`、`vbgr`或`4`、`none`或`5`（无子像素）。在 [Subpixel layout - Legom LCD Test](http://www.lagom.nl/lcd-test/subpixel.php) 中有区分。
-![各种排列方式](3.png)
+![各种排列方式](/assets/3.png)
 - `embeddedbitmap`*(bool)*：是否启用点阵字形。视个人喜好开关。
 
 #### 设置默认字体

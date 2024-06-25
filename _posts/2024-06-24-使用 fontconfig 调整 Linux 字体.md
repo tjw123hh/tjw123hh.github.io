@@ -382,7 +382,7 @@ fc-list :medium:lang=zh-CN
     </test>
     <edit binding="strong" mode="prepend" name="family">
         <string>JetBrainsMono Nerd Font</string>
-        <string>Noto Font CJK SC</string>
+        <string>Noto Sans Mono CJK SC</string>
         <string>Noto Color Emoji</string>
         <string>Symbols Nerd Font</string>
     </edit>

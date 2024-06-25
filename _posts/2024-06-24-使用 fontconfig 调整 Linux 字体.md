@@ -108,7 +108,7 @@ Fontconfig 通过**按顺序**利用各种配置文件对传入的`pattern`（�
 
 Fontconfig 读取配置文件，这些配置文件识别传入的`pattern`后加上自己的修改（例如，在前面插入`Noto Sans CJK SC`字体），最终 fontconfig 挑出能够在系统里找到的字体组成列表传出（此时传入的`sans-serif`等通用字族名被剔除）。
 
-注（也是 fontconfig **按顺序**读取配置文件的体现）：`sans`、`mono`可以在最初传入的`pattern`中使用，但在 fontconfig 修改开始时便会被首先加载的配置文件分别替换为`sans-serif`和`monospace`。由于 fontconfig 按顺序执行各个配置文件，当扫描到我们的配置文件时，`sans`（`sans serif`）和`mono`不会被我们检测到（因为它们已经不存在了）。因此，在我们自己的配置中，不能通过识别`sans`和`mono`来修改`pattern`。
+**注**（也是 fontconfig **按顺序**读取配置文件的体现）：`sans`、`mono`可以在最初传入的`pattern`中使用，但在 fontconfig 修改开始时便会被首先加载的配置文件分别替换为`sans-serif`和`monospace`。由于 fontconfig 按顺序执行各个配置文件，当扫描到我们的配置文件时，`sans`（`sans serif`）和`mono`不会被我们检测到（因为它们已经不存在了）。因此，在我们自己的配置中，不能通过识别`sans`和`mono`来修改`pattern`。
 
 #### 强绑定与弱绑定
 
@@ -333,6 +333,8 @@ fc-list :medium:lang=zh-CN
   - `lcddefault`或`1`：最大限度地消除彩色边纹，但是可能会增加笔画的模糊程度。多数场合这是最佳选择。
   - `lcdlight`或`2`：减轻笔画的模糊程度，但不能最大限度的消除彩色边纹。少数场合也许效果更好。
   - `lcdlegacy`或`3`：为了与传统的`"libXft color filter"`兼容而设置，未来会被删除。
+- `rgba`：指定 LCD 子像素的排列顺序，为了次像素渲染。分为：`unknown`或`0`（未知）、`rgb`或`1`、`bgr`或`2`、`vrgb`或`3`、`vbgr`或`4`、`none`或`5`（无子像素）。在 [Subpixel layout - Legom LCD Test](http://www.lagom.nl/lcd-test/subpixel.php) 中有区分。
+![各种排列方式](3.png)
 - `embeddedbitmap`*(bool)*：是否启用点阵字形。视个人喜好开关。
 
 #### 设置默认字体
@@ -497,4 +499,4 @@ fc-list :medium:lang=zh-CN
 
 #### 其他程序的字体设定
 
-许多程序自己有字体设定，或者使用 KDE 或 Gnome 等桌面环境的字体设定。但我们设置好了 fontconfig 不需要再设置这些软件。我们只需要在软件（或桌面环境提供的设置程序）中选择通用字族（可能为英文，也可能为中文`等宽`、`衬线`、`无衬线`）为字体就行了。
+许多程序自己有字体设定，或者使用 KDE 或 GNOME 等桌面环境的字体设定。但我们设置好了 fontconfig 不需要再设置这些软件。我们只需要在软件（或桌面环境提供的设置程序）中选择通用字族（可能为英文，也可能为中文`等宽`、`衬线`、`无衬线`）为字体就行了。

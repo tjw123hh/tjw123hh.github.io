@@ -46,10 +46,9 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 - 等宽字体（monospace）：就是写代码时经常用到的英文字符（半角字符）宽度一致、中文字符（全角字符）宽度是英文字符（半角字符）两倍的字体。因为一些程序（如终端）只能使用这种字体，以及显示代码的需求，所以在此处独立出来。
 
 示例：
-
-<span style="font-family: serif;">这是衬线体。This is serif.</span><br />
-<span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span><br />
-<span style="font-family: monospace;">这是等宽字体。This is monospace.</span>
+> <span style="font-family: serif;">这是衬线体。This is serif.</span><br />
+> <span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span><br />
+> <span style="font-family: monospace;">这是等宽字体。This is monospace.</span>
 
 ### 通用字族
 
@@ -59,10 +58,10 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 
 示例：
 
-<span style="font-family: system-ui;">这是系统界面字体。This is system-ui.</span><br />
-<span style="font-family: serif;">这是衬线体。This is serif.</span><br />
-<span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span><br />
-<span style="font-family: monospace;">这是等宽字体。This is monospace.</span>
+> <span style="font-family: system-ui;">这是系统界面字体。This is system-ui.</span><br />
+> <span style="font-family: serif;">这是衬线体。This is serif.</span><br />
+> <span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span><br />
+> <span style="font-family: monospace;">这是等宽字体。This is monospace.</span>
 
 ### 合成字体
 
@@ -80,13 +79,13 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 
 示例（仅在字体正确配置时可用，使用简体中文汉字）：
 
-遍角次亮采之关复门 默认<br />
-<span lang="zh-CN">遍角次亮采之关复门 中文（中国） lang=zh-CN</span><br />
-<span lang="zh-TW">遍角次亮采之关复门 中文（台湾） lang=zh-TW</span><br />
-<span lang="zh-HK">遍角次亮采之关复门 中文（香港） lang=zh-HK</span><br />
-<span lang="ja">遍角次亮采之关复门 日文 lang=ja</span><br />
-<span lang="ko">遍角次亮采之关复门 韩文 lang=ko</span><br />
-<span lang="ko-KP">遍角次亮采之关复门 朝鲜文 lang=ko-KP</span>
+> <span style="font-family: sans-serif;">遍角次亮采之关复门 默认</span><br />
+> <span style="font-family: sans-serif;" lang="zh-CN">遍角次亮采之关复门 中文（中国） lang=zh-CN</span><br />
+> <span style="font-family: sans-serif;" lang="zh-TW">遍角次亮采之关复门 中文（台湾） lang=zh-TW</span><br />
+> <span style="font-family: sans-serif;" lang="zh-HK">遍角次亮采之关复门 中文（香港） lang=zh-HK</span><br />
+> <span style="font-family: sans-serif;" lang="ja">遍角次亮采之关复门 日文 lang=ja</span><br />
+> <span style="font-family: sans-serif;" lang="ko">遍角次亮采之关复门 韩文 lang=ko</span><br />
+> <span style="font-family: sans-serif;" lang="ko-KP">遍角次亮采之关复门 朝鲜文 lang=ko-KP</span>
 
 ### 引号的全半角问题
 
@@ -97,9 +96,9 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 因此，我们也需要通过识别语言的方式切换字体来改变引号的全半角（见[#根据语言环境选择不同字体](#根据语言环境选择不同字体)）。
 
 示例（仅在字体正确配置时可用）：
-‘’“” 默认<br />
-<span lang="zh-CN">‘’“” 中文（中国） lang=zh-CN</span><br />
-<span lang="en">‘’“” 英文 lang=en</span>
+<span style="font-family: sans-serif;">‘’“” 默认</span><br />
+<span style="font-family: sans-serif;" lang="zh-CN">‘’“” 中文（中国） lang=zh-CN</span><br />
+<span style="font-family: sans-serif;" lang="en">‘’“” 英文 lang=en</span>
 
 ## 使用
 

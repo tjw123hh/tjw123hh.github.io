@@ -122,61 +122,24 @@ Fontconfig 读取配置文件，这些配置文件识别传入的`pattern`后加
 通过向**任何**使用 fontconfig 的程序传入环境变量`FC_DEBUG`来调试，设定为`4`显示`pattern`的替换流程，设置为`1024`显示读取的配置文件。其它值详见[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)。
 
 ##### 示例
-输入：
+输入（可根据元素多少调整`-A`后面的行数）：
 ```bash
-FC_DEBUG=4 fc-match sans:lang=en:weight=bold
+FC_DEBUG=4 fc-match -a sans:lang=zh | grep 'donePattern' -A 10 --max-count=1
 ```
-输出（`[...]`部分省略）：
+输出：
 ```
-[...]
-FcConfigSubstitute donePattern has 43 elts (size 48)
-        family: "Noto Sans"(s)
-        familylang: "en"(s)
-        style: "Bold"(s)
-        stylelang: "en"(s)
-        fullname: "Noto Sans Bold"(w)
-        fullnamelang: "en"(s)
-        slant: 0(i)(s)
-        weight: 200(f)(s)
-        width: 100(f)(s)
-        size: 12(f)(s)
-        pixelsize: 12.5(f)(s)
-        foundry: "GOOG"(s)
+FcConfigSubstitute donePattern has 7 elts (size 16)
+        family: "Noto Sans CJK SC"(s) "Noto Sans"(s) "Noto Sans CJK SC"(s) "Noto Color Emoji"(s) "Symbols Nerd Font"(s) "Noto Sans"(w) "DejaVu Sans"(w) "Verdana"(w) "Arial"(w) "Albany AMT"(w) "Luxi Sans"(w) "Nimbus Sans L"(w) "Nimbus Sans"(w) "Nimbus Sans"(w) "Helvetica"(w) "Nimbus Sans"(w) "Nimbus Sans L"(w) "Lucida Sans Unicode"(w) "BPG Glaho International"(w) "Tahoma"(w) "Nachlieli"(w) "Lucida Sans Unicode"(w) "Yudit Unicode"(w) "Kerkis"(w) "ArmNet Helvetica"(w) "Artsounk"(w) "BPG UTF8 M"(w) "Waree"(w) "Loma"(w) "Garuda"(w) "Umpush"(w) "Saysettha Unicode"(w) "JG Lao Old Arial"(w) "GF Zemen Unicode"(w) "Pigiarniq"(w) "B Davat"(w) "B Compset"(w) "Kacst-Qr"(w) "Urdu Nastaliq Unicode"(w) "Raghindi"(w) "Mukti Narrow"(w) "malayalam"(w) "Sampige"(w) "padmaa"(w) "Hapax Berbère"(w) "MS Gothic"(w) "UmePlus P Gothic"(w) "Microsoft YaHei"(w) "Microsoft JhengHei"(w) "WenQuanYi Zen Hei"(w) "WenQuanYi Bitmap Song"(w) "AR PL ShanHeiSun Uni"(w) "AR PL New Sung"(w) "Hiragino Sans"(w) "PingFang SC"(w) "PingFang TC"(w) "PingFang HK"(w) "Hiragino Sans CNS"(w) "Hiragino Sans GB"(w) "MgOpen Modata"(w) "VL Gothic"(w) "IPAMonaGothic"(w) "IPAGothic"(w) "Sazanami Gothic"(w) "Kochi Gothic"(w) "AR PL KaitiM GB"(w) "AR PL KaitiM Big5"(w) "AR PL ShanHeiSun Uni"(w) "AR PL SungtiL GB"(w) "AR PL Mingti2L Big5"(w) "ＭＳ ゴシック"(w) "ZYSong18030"(w) "TSCu_Paranar"(w) "NanumGothic"(w) "UnDotum"(w) "Baekmuk Dotum"(w) "Baekmuk Gulim"(w) "Apple SD Gothic Neo"(w) "KacstQura"(w) "Lohit Bengali"(w) "Lohit Gujarati"(w) "Lohit Hindi"(w) "Lohit Marathi"(w) "Lohit Maithili"(w) "Lohit Kashmiri"(w) "Lohit Konkani"(w) "Lohit Nepali"(w) "Lohit Sindhi"(w) "Lohit Punjabi"(w) "Lohit Tamil"(w) "Meera"(w) "Lohit Malayalam"(w) "Lohit Kannada"(w) "Lohit Telugu"(w) "Lohit Oriya"(w) "LKLUG"(w) "Noto Sans"(w) "FreeSans"(w) "Arial Unicode MS"(w) "Arial Unicode"(w) "Code2000"(w) "Code2001"(w) "URW Gothic"(w) "Nimbus Sans"(w) "Nimbus Sans Narrow"(w) "sans-serif"(s) "Roya"(w) "Koodak"(w) "Terafik"(w) "Helvetica"(w) "sans-serif"(w) "ITC Avant Garde Gothic"(w) "URW Gothic"(w) "sans-serif"(w) "sans-serif"(w) "Helvetica"(w) "Helvetica Narrow"(w) "Nimbus Sans Narrow"(w)
         antialias: True(w)
-        hintstyle: 3(i)(w)
-        hinting: True(w)
-        verticallayout: False(s)
-        autohint: False(w)
-        globaladvance: True(s)
-        file: "/usr/share/fonts/noto/NotoSans-Bold.ttf"(s)
-        index: 0(i)(w)
-        outline: True(s)
-        scalable: True(s)
-        dpi: 75(f)(s)
+        hintstyle: 1(i)(w)
         rgba: 1(i)(w)
-        scale: 1(f)(s)
-        charset: [...](s)
-        lang: [...](s)
-        fontversion: 131924(i)(s)
-        capability: "otlayout:DFLT otlayout:cyrl otlayout:dev2 otlayout:grek otlayout:latn"(w)
-        fontformat: "TrueType"(s)
-        embeddedbitmap: False(w)
-        decorative: False(s)
+        lang: zh(s)
         lcdfilter: 1(i)(w)
-        namelang: "zh-CN"(s)
         prgname: "fc-match"(s)
-        postscriptname: "NotoSans-Bold"(s)
-        color: False(s)
-        symbol: False(s)
-        variable: False(s)
-        fonthashint: True(s)
-        order: 0(i)(s)
-        desktop: "KDE"(s)
-        namedinstance: False(s)
-NotoSans-Bold.ttf: "Noto Sans" "Bold"
+...
 ```
 
-此处可以看到最后得到的`donePattern`有 43 个元素（elt），每个元素都是一个属性（property），这包括字体信息、系统信息和程序信息，而在执行中的`pattern`也有许多元素，这些元素在配置文件中都可以检测得到，使得 fontconfig 的可自定义性非常强。属性的描述元素值后面的`(i)`、`(f)`分别指整型与浮点型，`(s)`与`(w)`分别指强绑定与弱绑定。一些通用的元素在[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)有详细描述。
+此处可以看到第一个`donePattern`有 7 个元素（elt），这个`pattern`包括所有待选字体（后面的`donePattern`是单个字体的设置），每个元素都是一个属性（property），这包括字体信息、系统信息和程序信息，而在执行中的`pattern`也有许多元素，这些元素在配置文件中都可以检测得到，使得 fontconfig 的可自定义性非常强。属性的描述元素值后面的`(i)`、`(f)`分别指整型与浮点型，`(s)`与`(w)`分别指强绑定与弱绑定。一些通用的元素在[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)有详细描述。
 
 #### `fc-match [-a] [pattern]`
 传入`pattern`经过一系列操作后输出最终结果。使用`-a`不对最终列表进行任何修剪。（即使不传入`pattern`也会根据语言环境进行输出。）使用`:<元素名称>=<元素值>`指定`pattern`中特定元素的值，表示字体样式的可以直接省略前面的`<元素名称>‌=`<!--为了避免`>=`连字，两者之间插入了零宽不连字符（HTML 中使用`&zwnj;`即可，但这里属于代码部分，只能直接粘贴）-->，如`:bold`、`italic`等。还可以用`-XX`指定字体大小，如`Times-12`指 12 点（或作“磅”）大小的 Times 字体。
@@ -303,7 +266,7 @@ fc-list :medium:lang=zh-CN
       - `"eq"`（默认）和`"not_eq"`：用于任何值，完全匹配与非完全匹配（即等于与不等于）。
       - `"less"`、`"less_eq"`、`"more"`和`"more_eq"`：用于数值比较，小于、小于等于、大于和大于等于。
       - `“contains"`和`"not_contains"`：用于字符串，包含和不包含。
-  - 元素内容：根据属性类型指定类型（使用`<int>`、`<double>`、`<string>`、`<bool>`、`<charset>`和`<langset>`）包裹属性值。是需要检测（可能修改）的值。
+  - 元素内容：根据属性类型指定类型（使用`<int>`、`<double>`、`<string>`、`<bool>`、`<charset>`和`<langset>`）包裹属性值或使用`<const>`包裹常量名。是需要检测（可能修改）的值。
 - `<edit>`：修改。
   - 元素属性
     - `name`：需要修改的属性。
@@ -314,26 +277,26 @@ fc-list :medium:lang=zh-CN
     - `binding`：绑定模式。
       - `"strong"`和`"weak"`：指定强绑定和弱绑定。
       - `"same"`：与相应`<test>`检测到的值的绑定模式相同。
-  - 元素内容：根据属性类型指定类型（使用`<int>`、`<double>`、`<string>`、`<bool>`、`<charset>`和`<langset>`）包裹属性值。是修改后的值。
+  - 元素内容：根据属性类型指定类型（使用`<int>`、`<double>`、`<string>`、`<bool>`、`<charset>`和`<langset>`）包裹属性值或使用`<const>`包裹常量名。是修改后的值。
 
 ##### 渲染阶段
 
 渲染阶段主要操控渲染器渲染字体的方式，可以提高性能、改善观感。
 
-根据`<match target="font">`可以看出来此处针对的是字体，也就是说此处的`pattern`已经过滤完毕，只剩下那些存于系统中的字体了。
+根据`<match target="font">`可以看出来此处针对的是字体，也就是说此处的`pattern`已经过滤完毕，只剩下那些存于系统中的字体了。可以操控的属性值可以查看最后一个`donePattern`。
 
 同样使用`<match>`元素，语法与匹配阶段完全相同，只是操控的属性不同。这个阶段我们主要操控渲染相关的属性：
 
 - `hinting`*(bool)*：启用或禁用字体微调。字体微调指使用数学指令来调整轮廓字体的显示，使其与像素对齐，让字看起来更加清晰，建议设置为`true`。
-- `autohint`*(bool)*：使用自动微调代替内嵌微调。内嵌微调是指根据字体自带的算法微调；自动微调是指使用渲染器的自动微调功能进行字体微调。由于字体自带的微调通常比自动微调好（如果字体带有），建议设置为`false`。［可参照[Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[截图存档（2024-04-28）](/assets/4.png){:target="_blank"}）进行对比］
-- `hintstyle`*(int)*：微调的程度，可设置为：`hintnone`或`0`（关闭）、`hintslight`或`1`（轻度）、`hintmedium`或`2`（中度）、`hintfull`或`3`（完全）。过度的字体微调会使字体失去字体特点，但显示得更加清晰。建议根据自身情况设置。
+- `autohint`*(bool)*：使用自动微调代替内嵌微调。内嵌微调是指根据字体自带的算法微调；自动微调是指使用渲染器的自动微调功能进行字体微调。由于字体自带的微调通常比自动微调好（如果字体带有），建议设置为`false`。［可参照 [Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[截图存档 2024-04-28](/assets/4.png){:target="_blank"}）进行对比］
+- `hintstyle`*(int)*：微调的程度，可设置为：`hintnone`*&lt;const&gt;* 或`0`（关闭）、`hintslight`*&lt;const&gt;* 或`1`（轻度）、`hintmedium`*&lt;const&gt;* 或`2`（中度）、`hintfull`*&lt;const&gt;* 或`3`（完全）。过度的字体微调会使字体失去字体特点，但显示得更加清晰。建议根据自身情况设置。
 - `antialias`*(bool)*：抗锯齿。建议设置为`true`。
-- `lcdfilter`*(int)*：LCD filter 用来消除文字的彩色边纹，此属性设定它的风格［可参照[Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[截图存档（2024-04-28）](/assets/4.png){:target="_blank"}）进行对比］，可设置为：
-  - `lcdnone`或`0`：彻底关闭 LCD filter，不推荐，它会导致笔画边缘出现彩色边纹。
-  - `lcddefault`或`1`：最大限度地消除彩色边纹，但是可能会增加笔画的模糊程度。多数场合这是最佳选择。
-  - `lcdlight`或`2`：减轻笔画的模糊程度，但不能最大限度的消除彩色边纹。少数场合也许效果更好。
-  - `lcdlegacy`或`3`：为了与传统的`"libXft color filter"`兼容而设置，未来会被删除。
-- `rgba`：指定 LCD 子像素的排列顺序，为了次像素渲染。分为：`unknown`或`0`（未知）、`rgb`或`1`、`bgr`或`2`、`vrgb`或`3`、`vbgr`或`4`、`none`或`5`（无子像素）。在 [Subpixel layout - Legom LCD Test](http://www.lagom.nl/lcd-test/subpixel.php) 中有区分。
+- `lcdfilter`*(int)*：LCD filter 用来消除文字的彩色边纹，此属性设定它的风格［可参照[Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[截图存档 2024-04-28](/assets/4.png){:target="_blank"}）进行对比］，可设置为：
+  - `lcdnone`*&lt;const&gt;* 或`0`：彻底关闭 LCD filter，不推荐，它会导致笔画边缘出现彩色边纹。
+  - `lcddefault`*&lt;const&gt;* 或`1`：最大限度地消除彩色边纹，但是可能会增加笔画的模糊程度。多数场合这是最佳选择。
+  - `lcdlight`*&lt;const&gt;* 或`2`：减轻笔画的模糊程度，但不能最大限度的消除彩色边纹。少数场合也许效果更好。
+  - `lcdlegacy`*&lt;const&gt;* 或`3`：为了与传统的`"libXft color filter"`兼容而设置，未来会被删除。
+- `rgba`：指定 LCD 子像素的排列顺序，为了次像素渲染。分为：`unknown`*&lt;const&gt;* 或`0`（未知）、`rgb`*&lt;const&gt;* 或`1`、`bgr`*&lt;const&gt;* 或`2`、`vrgb`*&lt;const&gt;* 或`3`、`vbgr`*&lt;const&gt;* 或`4`、`none`*&lt;const&gt;* 或`5`（无子像素）。在 [Subpixel layout - Legom LCD Test](http://www.lagom.nl/lcd-test/subpixel.php) 中有区分。
 ![各种排列方式](/assets/3.png)
 - `embeddedbitmap`*(bool)*：是否启用点阵字形。视个人喜好开关。
 
@@ -472,7 +435,7 @@ fc-list :medium:lang=zh-CN
 
 #### 优化字体渲染
 
-示例：
+示例（这里不需要强绑定）：
 ```xml
 <!--rendering options-->
 <match target="font">
@@ -483,7 +446,7 @@ fc-list :medium:lang=zh-CN
         <bool>true</bool>
     </edit>
     <edit mode="assign" name="hintstyle">
-        <const>hintslight</const>
+        <const>hintmedium</const>
     </edit>
     <edit mode="assign" name="antialias">
         <bool>true</bool>

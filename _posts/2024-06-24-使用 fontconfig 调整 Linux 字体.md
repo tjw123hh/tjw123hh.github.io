@@ -406,36 +406,46 @@ fc-list :medium:lang=zh-CN
 
 此处替换了香港字体，其他地区切换类似。
 
-示例二：
+示例二（不包括文件头和`<fontconfig>`）：
 ```xml
 <match target="pattern">
-        <test compare="contains" name="lang">
-            <string>en</string>
-        </test>
-        <test compare="contains" name="family">
-            <string>Noto Sans CJK</string>
-        </test>
-        <edit binding="strong" mode="prepend" name="family">
-            <string>Noto Sans</string>
-        </edit>
-    </match>
-    <match target="pattern">
-        <test compare="contains" name="lang">
-            <string>en</string>
-        </test>
-        <test compare="contains" name="family">
-            <string>Noto Serif CJK</string>
-        </test>
-        <edit binding="strong" mode="prepend" name="family">
-            <string>Noto Serif</string>
-        </edit>
-    </match>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>zh</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>jp</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>ko</string>
+    </test>
+    <test compare="contains" name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>Noto Sans</string>
+</match>
+<match target="pattern">
+    <test compare="not_contains" name="lang" qual="first">
+        <string>zh</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>jp</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>ko</string>
+    </test>
+    <test compare="contains" name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>Noto Serif</string>
+</match>
 ```
 **注**：Chrome 及 Chromium 只会取结果中的第一个字体，如果替换了将会使中文字符不能显示，此时需要通过属性`prgname`过滤掉这些程序，这些程序无法实现全半角切换。
 
 #### 优化字体渲染
 
-示例（这里不需要强绑定）：
+示例（这里不需要强绑定，不包括文件头和`<fontconfig>`）：
 ```xml
 <!--rendering options-->
 <match target="font">

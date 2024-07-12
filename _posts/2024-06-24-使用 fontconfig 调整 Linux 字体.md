@@ -254,7 +254,7 @@ fc-list :medium:lang=zh-CN
 
 语法：
 
-- `<test>`：检测需要的属性。只有所有`<test>`都满足，才会进行修改，可以没有。
+- `<test>`：检测需要的属性。只有所有`<test>`都满足，才会进行修改。即多个`<test>`之间为“与”的关系。要实现“或”的关系，需要多个`<match>`元素。如果不需要检测，也可以不设置`<test>`。
   - 元素属性
     - `name`：需要检测的属性。
     - `qual`：检测的品质。
@@ -270,14 +270,14 @@ fc-list :medium:lang=zh-CN
 - `<edit>`：修改。
   - 元素属性
     - `name`：需要修改的属性。
-    - `mode`：修改模式。这些模式都有自己的变种（以括号标示），若使用变种或没有相应（`name`属性相同）`<test>`，执行“**//**”后面的操作，否则执行前者。为了获得更高的优先级，通常使用强引用＋`prepend`。
+    - `mode`：修改模式，默认修改相应`<test>`（相同`name`属性）检测到的值。没有相应检测项或者使用括号中的变种时，执行“**//**”后面的操作。为了获得最高的优先级，用户配置中一般需要使用强引用配合`prepend`。
       - `"assign"`（`"assign_replace"`）：替换相应`<test>`检测到的值 **//** 替换整个列表。
       - `"prepend"`（`"prepend_first"`）和`"append"`（`"append_last"`）：分别在相应`<test>`检测到的值前面、后面插入值 **//** 在列表最前、最后插入值。
       - `"delete"`（`"delete_all"`）：删除相应`<test>`检测到的值 **//** 删除整个列表。
     - `binding`：绑定模式。
       - `"strong"`和`"weak"`：指定强绑定和弱绑定。
       - `"same"`：与相应`<test>`检测到的值的绑定模式相同。
-  - 元素内容：根据属性类型指定类型（使用`<int>`、`<double>`、`<string>`、`<bool>`、`<charset>`和`<langset>`）包裹属性值或使用`<const>`包裹常量名。是修改后的值。
+  - 元素内容：根据属性类型指定类型（使用`<int>`、`<double>`、`<string>`、`<bool>`、`<charset>`和`<langset>`）包裹属性值或使用`<const>`包裹常量名，用来指定修改后的值。
 
 ##### 渲染阶段
 
@@ -287,7 +287,7 @@ fc-list :medium:lang=zh-CN
 
 同样使用`<match>`元素，语法与匹配阶段完全相同，只是操控的属性不同。这个阶段我们主要操控渲染相关的属性：
 
-- `hinting`*(bool)*：启用或禁用字体微调。字体微调指使用数学指令来调整轮廓字体的显示，使其与像素对齐，让字看起来更加清晰，建议设置为`true`。
+- `hinting`*(bool)*：启用或禁用字体微调。字体微调指使用数学指令来调整轮廓字体的显示，使其与像素对齐，让字看起来更加清晰，建议设置为`true`（否则字体就会非常模糊）。
 - `autohint`*(bool)*：使用自动微调代替内嵌微调。内嵌微调是指根据字体自带的算法微调；自动微调是指使用渲染器的自动微调功能进行字体微调。由于字体自带的微调通常比自动微调好（如果字体带有），建议设置为`false`。［可参照 [Lcdfilter test](https://spasche.net/files/lcdfiltering/)（[截图存档 2024-04-28](/assets/4.png){:target="_blank"}）进行对比］
 - `hintstyle`*(int)*：微调的程度，可设置为：`hintnone`*&lt;const&gt;* 或`0`（关闭）、`hintslight`*&lt;const&gt;* 或`1`（轻度）、`hintmedium`*&lt;const&gt;* 或`2`（中度）、`hintfull`*&lt;const&gt;* 或`3`（完全）。过度的字体微调会使字体失去字体特点，但显示得更加清晰。建议根据自身情况设置。
 - `antialias`*(bool)*：抗锯齿。建议设置为`true`。
@@ -298,7 +298,7 @@ fc-list :medium:lang=zh-CN
   - `lcdlegacy`*&lt;const&gt;* 或`3`：为了与传统的`"libXft color filter"`兼容而设置，未来会被删除。
 - `rgba`：指定 LCD 子像素的排列顺序，为了次像素渲染。分为：`unknown`*&lt;const&gt;* 或`0`（未知）、`rgb`*&lt;const&gt;* 或`1`、`bgr`*&lt;const&gt;* 或`2`、`vrgb`*&lt;const&gt;* 或`3`、`vbgr`*&lt;const&gt;* 或`4`、`none`*&lt;const&gt;* 或`5`（无子像素）。在 [Subpixel layout - Legom LCD Test](http://www.lagom.nl/lcd-test/subpixel.php) 中有区分。
 ![各种排列方式](/assets/3.png)
-- `embeddedbitmap`*(bool)*：是否启用点阵字形。视个人喜好开关。
+- `embeddedbitmap`*(bool)*：是否启用字体内嵌的点阵字形。视个人需要开关。点阵字形即位图字形，相对于一般的向量字形可能渲染更快，但没有次像素渲染，会丢失字体的许多细节。
 
 #### 设置默认字体
 

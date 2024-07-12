@@ -279,11 +279,13 @@ fc-list :medium:lang=zh-CN
       - `"same"`：与相应`<test>`检测到的值的绑定模式相同。
   - 元素内容：根据属性类型指定类型（使用`<int>`、`<double>`、`<string>`、`<bool>`、`<charset>`和`<langset>`）包裹属性值或使用`<const>`包裹常量名，用来指定修改后的值。
 
+匹配阶段结束，渲染阶段开始前的`donePattern`可以通过`FC_DEBUG=4 fc-match -a sans:lang=zh | grep 'donePattern' -A 10 --max-count=1`查看。
+
 ##### 渲染阶段
 
 渲染阶段主要操控渲染器渲染字体的方式，可以提高性能、改善观感。
 
-根据`<match target="font">`可以看出来此处针对的是字体，也就是说此处的`pattern`已经过滤完毕，只剩下那些存于系统中的字体了。可以操控的属性值可以查看最后一个`donePattern`。
+根据`<match target="font">`可以看出来此处针对的是字体，也就是说此处的`pattern`已经过滤完毕，只剩下那些存于系统中的字体了。可以操控的属性值可以查看最后一个`donePattern`（上面查看的是第一个）。
 
 同样使用`<match>`元素，语法与匹配阶段完全相同，只是操控的属性不同。这个阶段我们主要操控渲染相关的属性：
 
@@ -299,6 +301,8 @@ fc-list :medium:lang=zh-CN
 - `rgba`：指定 LCD 子像素的排列顺序，为了次像素渲染。分为：`unknown`*&lt;const&gt;* 或`0`（未知）、`rgb`*&lt;const&gt;* 或`1`、`bgr`*&lt;const&gt;* 或`2`、`vrgb`*&lt;const&gt;* 或`3`、`vbgr`*&lt;const&gt;* 或`4`、`none`*&lt;const&gt;* 或`5`（无子像素）。在 [Subpixel layout - Legom LCD Test](http://www.lagom.nl/lcd-test/subpixel.php) 中有区分。
 ![各种排列方式](/assets/3.png)
 - `embeddedbitmap`*(bool)*：是否启用字体内嵌的点阵字形。视个人需要开关。点阵字形即位图字形，相对于一般的向量字形可能渲染更快，但没有次像素渲染，会丢失字体的许多细节。
+
+这些属性对每个字体都独立，且每个字体只有一个值而不是值的列表，因此不需要考虑排序问题，可以弱绑定也可以强绑定。
 
 #### 设置默认字体
 
@@ -445,26 +449,26 @@ fc-list :medium:lang=zh-CN
 
 #### 优化字体渲染
 
-示例（这里不需要强绑定，不包括文件头和`<fontconfig>`）：
+示例（也可以不指定强绑定，不包括文件头和`<fontconfig>`）：
 ```xml
 <!--rendering options-->
 <match target="font">
-    <edit mode="assign" name="autohint">
+    <edit mode="assign" name="autohint" binding="strong">
         <bool>false</bool>
     </edit>
-    <edit mode="assign" name="hinting">
+    <edit mode="assign" name="hinting" binding="strong">
         <bool>true</bool>
     </edit>
-    <edit mode="assign" name="hintstyle">
+    <edit mode="assign" name="hintstyle" binding="strong">
         <const>hintmedium</const>
     </edit>
-    <edit mode="assign" name="antialias">
+    <edit mode="assign" name="antialias" binding="strong">
         <bool>true</bool>
     </edit>
-    <edit mode="assign" name="lcdfilter">
+    <edit mode="assign" name="lcdfilter" binding="strong">
         <const>lcddefault</const>
     </edit>
-    <edit mode="assign" name="rgba">
+    <edit mode="assign" name="rgba" binding="strong">
         <const>rgb</const>
     </edit>
 </match>

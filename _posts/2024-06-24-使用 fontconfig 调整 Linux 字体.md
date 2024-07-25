@@ -480,4 +480,4 @@ fc-list :medium:lang=zh-CN
 
 ## 局限性
 
-除了一些程序不使用 fontconfig 外，fontconfig 作为十分底层的程序，可以满足大部分自定义字体的要求，但一些涉及到单字的字体设置（标点挤压、不依赖语言设置自动检测全半角引号等）只能通过更改字体本身实现，具体可以参考[这篇文章](https://emptystack.top/chws-fea/)（[空栈顶](https://emptystack.top/)）
+除了一些程序不使用 fontconfig 外，fontconfig 作为十分底层的程序，可以满足大部分自定义字体的要求，但一些涉及到单字的字体设置（标点挤压、不依赖语言设置自动检测全半角引号等）只能通过更改字体本身实现，具体可以参考[这篇文章](https://emptystack.top/chws-fea/)（——[空栈顶](https://emptystack.top/)）。

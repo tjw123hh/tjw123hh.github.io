@@ -417,7 +417,7 @@ fc-list :medium:lang=zh-CN
         <string>zh</string>
     </test>
     <test compare="not_contains" name="lang" qual="first">
-        <string>jp</string>
+        <string>ja</string>
     </test>
     <test compare="not_contains" name="lang" qual="first">
         <string>ko</string>

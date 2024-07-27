@@ -379,7 +379,7 @@ fc-list :medium:lang=zh-CN
 
 这可以解决[#常见字体配置问题](#常见字体配置问题)中的[#异体字不正确显示](#异体字不正确显示)与[#引号的全半角问题](#引号的全半角问题)。
 
-这里使用的`Noto Sans CJK`支持`SC`、`HK`、`TC`、`JP`、`KR`五种变体。
+这里使用的`Noto Sans CJK`支持`SC`（对应`zh-CN`）、`HK`（对应`zh-HK`）、`TC`（对应`zh-TW`）、`JP`（对应`ja`）、`KR`（对应`ko`）五种变体。
 
 示例一（不包括文件头和`<fontconfig>`）：
 ```xml

@@ -675,6 +675,10 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
             - key: data-background-color
               value: "White"
           prepend: |
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/combine/npm/reveal.js/dist/reveal.min.css,npm/reveal.js/dist/theme/serif.min.css"
+            />
             <style>
               .sidebar {
                 line-height: 1.5;

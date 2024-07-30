@@ -2,6 +2,7 @@
 title: 使用 fontconfig 调整 Linux 字体
 tags:
     - Linux
+    - 字体
 ---
 
 ## 前言

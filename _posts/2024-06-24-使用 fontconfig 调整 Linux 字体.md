@@ -9,13 +9,6 @@ tags:
 
 之前一些 emoji 总是显示成方框，输入法（fcitx5）中的字体甚至也模糊了。而之前一直使用 KDE 的“字体”调整字体，但这样只能设定一个字体而不能设定替代字体（像是之前调成思源黑体后 emoji 部分就全部不能显示）。所以就去网上查到以下几篇关于 fontconfig 的文章。然后写篇简明点的文章（顺便巩固学习成果）。
 
-- [Linux fontconfig 的字体匹配机制](https://catcat.cc/post/2020-10-31/) —— [rydesun](https://catcat.cc/)（包含更多技术细节）
-- [用 fontconfig 治理 Linux 中的字体](https://catcat.cc/post/2021-03-07/) —— [rydesun](https://catcat.cc/)
-- [fontconfig：Linux下的字体配置](https://www.lbqaq.top/p/linux-font/) —— [luoboQAQ](https://www.lbqaq.top/)
-- [Linux 上的字体配置与故障排除](https://blog.lilydjwg.me/2023/3/5/linux-fonts.216591.html) —— [依云](https://blog.lilydjwg.me/)
-- [官方用户文档（字体配置文件）](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)
-- [fonts.conf 中文手册](https://www.jinbuguo.com/gui/fonts.conf.html) —— [金步国](https://www.jinbuguo.com/)
-
 ## Fontconfig 是什么
 
 [官网介绍](https://www.freedesktop.org/wiki/Software/fontconfig/)
@@ -481,4 +474,13 @@ fc-list :medium:lang=zh-CN
 
 ## 局限性
 
-除了一些程序不使用 fontconfig 外，fontconfig 作为十分底层的程序，可以满足大部分自定义字体的要求，但一些涉及到单字的字体设置（标点挤压、不依赖语言设置自动检测全半角引号等）只能通过更改字体本身实现，具体可以参考[这篇文章](https://emptystack.top/chws-fea/)（——[空栈顶](https://emptystack.top/)）。
+除了一些程序不使用 fontconfig 外，fontconfig 作为十分底层的程序，可以满足大部分自定义字体的要求，但一些涉及到单字的字体设置（标点挤压、不依赖语言设置自动检测全半角引号等）只能通过更改字体本身实现，可以看我的[下一篇文章](https://tjw123hh.github.io/2024/07/28/Linux-%E5%9C%A8%E5%AD%97%E4%BD%93%E5%B1%82%E9%9D%A2%E5%AE%9E%E7%8E%B0%E6%A0%87%E7%82%B9%E6%8C%A4%E5%8E%8B/)。
+
+## 另请参阅
+
+- [Linux fontconfig 的字体匹配机制](https://catcat.cc/post/2020-10-31/) ⸺ [rydesun](https://catcat.cc/)（包含更多技术细节）
+- [用 fontconfig 治理 Linux 中的字体](https://catcat.cc/post/2021-03-07/) ⸺ [rydesun](https://catcat.cc/)
+- [fontconfig：Linux下的字体配置](https://www.lbqaq.top/p/linux-font/) ⸺ [luoboQAQ](https://www.lbqaq.top/)
+- [Linux 上的字体配置与故障排除](https://blog.lilydjwg.me/2023/3/5/linux-fonts.216591.html) ⸺ [依云](https://blog.lilydjwg.me/)
+- [官方用户文档（字体配置文件）](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)
+- [fonts.conf 中文手册](https://www.jinbuguo.com/gui/fonts.conf.html) ⸺ [金步国](https://www.jinbuguo.com/)

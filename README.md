@@ -1,3 +1,4 @@
+<div lang="zh-CN"> <!--这里特别标记一下语言让 Github 上的 README 能正确显示-->
 # Tjw123hh 的主页
 
 欢迎访问我的主页！下面向你介绍一下我吧\~
@@ -35,3 +36,4 @@
 - **Weblate**：翻译网站
   - [<b>Prism Launcher</b>](https://prismlauncher.org/)：~~基于基于 MultiMC 的 PolyMC 的~~ Minecraft 启动器
     - 参与了部分（[简中](https://hosted.weblate.org/projects/prismlauncher/launcher/zh_Hans/)、[繁中](https://hosted.weblate.org/projects/prismlauncher/launcher/zh_Hant/)）翻译\~
+</div>

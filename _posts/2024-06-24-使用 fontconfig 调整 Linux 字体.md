@@ -487,4 +487,4 @@ fc-list :medium:lang=zh-CN
 
 ## 版权声明
 
-本作品的原始版本及截至 2024 年 8 月 1 日 0:00 UTC 之前的所有版本均遵循 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1) 许可证。从 2024 年 8 月 1 日 0:00 UTC 开始的所有更新版本遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1) 许可证。文章开头仅标注创作开始日期。
+本作品的原始版本及截至 2024 年 8 月 1 日 0:00 UTC 之前的所有版本均遵循 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1) 许可证。从 2024 年 8 月 1 日 0:00 UTC 开始的所有更新版本遵循 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1) 许可证。文章开头仅标注创作开始日期。

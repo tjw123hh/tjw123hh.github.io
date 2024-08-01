@@ -301,6 +301,12 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 * {
                   font-feature-settings: 'chws', 'vchw';
                 }
+                .alt {
+                  text-align: center;
+                  text-indent: unset;
+                  font-size: smaller;
+                  color: gray;
+                }
                 h1 {
                   font-weight: 900;
                 }

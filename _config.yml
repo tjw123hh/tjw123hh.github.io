@@ -628,8 +628,8 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 <i class="fab fa-creative-commons-by fa-fw"></i>
                 <i class="fab fa-creative-commons-nc fa-fw"></i>
                 <i class="fab fa-creative-commons-sa fa-fw"></i>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans"
-                rel="license">CC-BY-NC-SA 4.0</a>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
+                rel="license">CC BY-NC-SA 4.0</a>（特别声明除外）
             </span>
         merger: # 打赏页，需要配置！
           append_to_head:

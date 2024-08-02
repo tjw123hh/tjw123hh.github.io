@@ -51,8 +51,8 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 href: /archive/
               - title: '<i class="fa-solid fa-tags fa-fw"></i> 标签'
                 href: /tags/
-              - title: '<i class="fa-solid fa-coffee fa-fw"></i> 捐赠'
-                href: /merger/
+              - title: '<i class="fa-solid fa-rss fa-fw"></i> 订阅 RSS 源'
+                href: /feed.xml
             simple_jekyll_search: # 侧边栏的全站搜索
               enable: true
               full_text_search: true # 全文搜索
@@ -628,51 +628,14 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
             unit: 分
             divided_by: 300 # 正常人的阅读速度大概每分钟三百个字
           copyright:
-            | # 使用 CC-BY-NC-SA
+            | # 使用 CC BY-NC-SA
             <span style="float: right;">
-                <i class="fab fa-creative-commons fa-fw"></i>
-                <i class="fab fa-creative-commons-by fa-fw"></i>
-                <i class="fab fa-creative-commons-sa fa-fw"></i>
+                <i class="fab fa-creative-commons"></i>
+                <i class="fab fa-creative-commons-by"></i>
+                <i class="fab fa-creative-commons-sa"></i>
                 <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
                 rel="license">CC BY-SA 4.0</a>（特别声明除外）
             </span>
-        merger: # 打赏页，需要配置！
-          append_to_head:
-            - | # 需要配置的变量见<https://merger.justhx.com/cn/docs/configure>
-              <script>
-                var multilingual = true;
-                var myname = "Tjw123hh";
-                var mayname_eng = myname;
-                var mayname_hans = myname;
-                var mayname_hant = myname;
-                var profile = "tjw123hh@gmail.com";
-                var usage = "donate";
-                var wechat = "wxp://f2f0dFsWU3EssMH7Tar6Wi70_hH8BF1Rb_eaNcIPkxbKQ2I";
-                var alipay = "https://qr.alipay.com/fkx19208lt4pifj5f0u6249";
-                var multilingual = true;
-                var branding = false;
-                var title = "钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱";
-                var subtitle = "跟随进一步的指示以向" + myname + "付款";
-                var qrcodeapi = "https://www.zhihu.com/qrcode?url=";
-                /* 存储在本地 */
-                var gravatar_url = "/assets/starrighting.svg?";
-              </script>
-            - |
-              <meta
-                charset="utf-8"
-              />
-              <meta
-                name="viewport"
-                content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-              />
-              <meta
-                http-equiv="Content-Security-Policy"
-                content="upgrade-insecure-requests"
-              />
-            - | # merger的页面样式
-              <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/hifocus/merger@0.26.1/assets/styles/spectre.css/spectre-modified.min.css,gh/hifocus/merger@0.26.1/assets/styles/style.min.css">
-              <script defer="defer" src="https://cdn.jsdelivr.net/combine/npm/jquery"></script>
-              <script defer="defer" src="https://cdn.jsdelivr.net/combine/gh/lrsjng/jquery-qrcode/dist/jquery-qrcode.min.js,npm/blueimp-md5/js/md5.min.js,gh/hifocus/merger@0.26.1/assets/js/function.min.js,gh/hifocus/merger@0.26.1/assets/js/font_974919_xgtacm93vxp.min.js"></script>
         home: # 展示页的配置可跳过，详见<https://revealjs.com/>
           append_to_section_tag:
             - key: data-markdown

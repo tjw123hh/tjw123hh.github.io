@@ -51,8 +51,6 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 href: /archive/
               - title: '<i class="fa-solid fa-tags fa-fw"></i> 标签'
                 href: /tags/
-              - title: '<i class="fa-solid fa-rss fa-fw"></i> 订阅 RSS 源'
-                href: /feed.xml
             simple_jekyll_search: # 侧边栏的全站搜索
               enable: true
               full_text_search: true # 全文搜索
@@ -300,6 +298,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
               <style>
                 * {
                   font-feature-settings: 'chws', 'vchw';
+                  text-spacing: auto;
                 }
                 .alt {
                   text-align: center;

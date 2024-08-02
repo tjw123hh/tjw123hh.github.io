@@ -1,18 +1,20 @@
 title: "Tjw123hh 的博客" # 站点标题
 description: | # 头像背后的信息（html格式），<br/>代表换行
   <a href="mailto:tjw123hh@outlook.com">
-    <i class="fa-solid fa-envelope"></i>
+    <i class="fa-solid fa-envelope fa-fw"></i>
   </a>
   <a href="https://github.com/tjw123hh">
-    <i class="fa-brands fa-github"></i>
+    <i class="fa-brands fa-github fa-fw"></i>
   </a>
   <a href="https://space.bilibili.com/701675571">
-    <i class="fa-brands fa-bilibili"></i>
+    <i class="fa-brands fa-bilibili fa-fw"></i>
   </a>
   <a href="https://www.zhihu.com/people/tjw-66">
-    <i class="fa-brands fa-zhihu"></i>
+    <i class="fa-brands fa-zhihu fa-fw"></i>
   </a>
-  <br/>
+  <a href="/feed.xml" type="application/rss+xml">
+    <i class="fa-solid fa-rss fa-fw"></i>
+  </a>
 url: https://tjw123hh.github.io # 你的域名，例如 https://wu-kan.github.io
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/assets`前也要加，即`/your_baseurl/assets`。这一项结尾不要有'/'。
 
@@ -51,6 +53,8 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 href: /archive/
               - title: '<i class="fa-solid fa-tags fa-fw"></i> 标签'
                 href: /tags/
+              - title: '<i class="fa-solid fa-rss fa-fw"></i> 订阅 RSS 源'
+                href: /feed.xml
             simple_jekyll_search: # 侧边栏的全站搜索
               enable: true
               full_text_search: true # 全文搜索

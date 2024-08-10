@@ -21,7 +21,7 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 
 但 fontconfig 的支持视程序而定，大部分 Linux 程序对 fontconfig 有较好的支持，但 Chrome（以及其他使用 Chromium 的程序）完全不传语言给 fontconfig 且只使用结果中的首个字体。
 
-## 前置知识（关于字体）
+## 前置知识
 
 此部分内容可以选择性阅读（了解的部分可以跳过）。
 
@@ -65,7 +65,7 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 
 ### 异体字不正确显示
 
-每个地区，汉字的规范写法都不一样，而 Unicode 将许多同源的字形整合到一个编码上，而一些简体字在其他国家当作部件处理。如果只使用一种字体，无法正确显示不同语言的内容。因此，中文字体有大陆（SC/CN/GB）、香港（HK）、台湾（TW/*TC\**）、日本（JP/JA）、韩国（KR/KO）和朝鲜（KP）等地区变种，但一些变体鲜有字体支持。它们对应的语言代号分别为 `zh-CN`、`zh-HK`、`zh-TW`、`ja`、`ko`（`ko-KR`）、`ko-KP`。各字型的差异可以参照《[了解各个地区的汉字字形差异！](https://www.bilibili.com/video/BV1kK421t7jc)》（⸺[派对大魔王](https://space.bilibili.com/316576469)）。
+每个地区，汉字的规范写法都不一样，而 Unicode 将许多同源的字形整合到一个编码上，而一些简体字在其他国家当作部件处理。如果只使用一种字体，无法正确显示不同语言的内容。因此，中文字体有大陆（SC/CN/GB）、香港（HK）、台湾（TW/*TC\**）、日本（JP/JA）、韩国（KR/KO）和朝鲜（KP）等地区变种，这些变种的具体名称由使用的字体决定。韩国和朝鲜现在很少使用汉字，朝鲜更是几乎没人用计算机，也没有相关规范，导致包含两国变体的字体很少。（真的有字体支持 KP 变体吗？）各字型的差异可以参照《[了解各个地区的汉字字形差异！](https://www.bilibili.com/video/BV1kK421t7jc)》（⸺[派对大魔王](https://space.bilibili.com/316576469)）。
 
 *\* TC 全称 Traditional Chinese，即繁体中文，与简体中文（SC）对应。不一定符合台湾教育部规定字形（即“台教标”）。但大多数此变体针对台湾制作。*
 
@@ -78,7 +78,7 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 > <span lang="zh-TW">遍角次亮采之关复门 中文（台湾） lang=zh-TW</span><br />
 > <span lang="zh-HK">遍角次亮采之关复门 中文（香港） lang=zh-HK</span><br />
 > <span lang="ja">遍角次亮采之关复门 日文 lang=ja</span><br />
-> <span lang="ko">遍角次亮采之关复门 韩文 lang=ko</span><br />
+> <span lang="ko-KR">遍角次亮采之关复门 韩文 lang=ko-KR</span><br />
 > <span lang="ko-KP">遍角次亮采之关复门 朝鲜文 lang=ko-KP</span>
 
 ### 引号的全半角问题
@@ -94,9 +94,7 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 > <span lang="zh-CN">‘’“” 中文（中国） lang=zh-CN</span><br />
 > <span lang="en">‘’“” 英文 lang=en</span>
 
-## 使用
-
-### Fontconfig 的运作方式
+## Fontconfig 的运作方式
 
 Fontconfig 通过**按顺序**利用各种配置文件对传入的 `pattern`（一个或多个字体，包括字体的大小、粗细等样式）进行修改，并最后将系统中存在的字体从得到的 `pattern` 中找出来最终以一个列表的形式传递出去。列表由最先尝试使用的字体开始，程序应在前面字体不能使用时调用后面的字体渲染。
 
@@ -104,19 +102,21 @@ Fontconfig 读取配置文件，这些配置文件识别传入的 `pattern` 后�
 
 **注**（也是 fontconfig **按顺序**读取配置文件的体现）：`sans`、`mono` 可以在最初传入的 `pattern` 中使用，但在 fontconfig 修改开始时便会被首先加载的配置文件分别替换为 `sans-serif` 和 `monospace`。由于 fontconfig 按顺序执行各个配置文件，当扫描到我们的配置文件时，`sans`（`sans serif`）和 `mono` 不会被我们检测到（因为它们已经不存在了）。因此，在我们自己的配置中，不能通过识别 `sans` 和 `mono` 来修改 `pattern`。
 
-#### 强绑定与弱绑定
+### 强绑定与弱绑定
 
 配置文件插入字体时，有强弱绑定之分，一般系统默认的配置使用弱绑定，用户的配置使用强绑定。在传出最终 `pattern` 之前，fontconfig 会将强绑定移到前面，弱绑定移到后面弱绑定字体的顺序还会被 fontconfig 调整，这样用户使用强绑定就不必担心自己配置文件的加载顺序了。
 
 在我们添加自己的配置前，系统中已经有了许多默认配置（`/etc/fonts/conf.d/` 目录下）和可选配置［`/usr/share/fontconfig/conf.avail/`（旧为 `/etc/fonts/conf.avail/`）目录下］，用来自动选择字体来显示出更多的文字。
 
-### 调试
+## 调试
 
-#### `FC_DEBUG`
+### `FC_DEBUG`
 通过向**任何**使用 fontconfig 的程序传入环境变量 `FC_DEBUG` 来调试，设定为 `4` 显示 `pattern` 的替换流程，设置为 `1024` 显示读取的配置文件。其它值详见[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)。
 
-##### 示例
+**示例：**
+
 输入（可根据元素多少调整 `-A` 后面的行数）：
+
 ```bash
 FC_DEBUG=4 fc-match -a sans:lang=zh | grep 'donePattern' -A 10 --max-count=1
 ```
@@ -135,11 +135,13 @@ FcConfigSubstitute donePattern has 7 elts (size 16)
 
 此处可以看到第一个 `donePattern` 有 7 个元素（elt），这个 `pattern` 包括所有待选字体（后面的 `donePattern` 是单个字体的设置），每个元素都是一个属性（property），这包括字体信息、系统信息和程序信息，而在执行中的 `pattern` 也有许多元素，这些元素在配置文件中都可以检测得到，使得 fontconfig 的可自定义性非常强。属性的描述元素值后面的 `(i)`、`(f)` 分别指整型与浮点型，`(s)` 与 `(w)` 分别指强绑定与弱绑定。一些通用的元素在[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)有详细描述。
 
-#### `fc-match [-a] [pattern]`
+### `fc-match [-a] [pattern]`
 传入 `pattern` 经过一系列操作后输出最终结果。使用 `-a` 不对最终列表进行任何修剪。（即使不传入 `pattern` 也会根据语言环境进行输出。）使用 `:<元素名称>=<元素值>` 指定 `pattern` 中特定元素的值，表示字体样式的可以直接省略前面的 `<元素名称>‌=`<!--为了避免`>=`连字，两者之间插入了零宽不连字符（HTML 中使用`&zwnj;`即可，但这里属于代码部分，只能直接粘贴）-->，如 `:bold`、`italic` 等。还可以用 `-XX` 指定字体大小，如 `Times-12` 指 12 点（或作“磅”）大小的 Times 字体。
 
-##### 示例
+**示例：**
+
 输入：
+
 ```bash
 fc-match -a sans:lang=en:weight=bold
 ```
@@ -154,6 +156,7 @@ SourceCodeVF-Italic.otf: "SourceCodeVF" "<unknown style>"
 ```
 
 输入：
+
 ```bash
 FC_DEBUG=1024 fc-match
 ```
@@ -169,13 +172,14 @@ FC_DEBUG=1024
 NotoSansCJK-Regular.ttc: "Noto Sans CJK SC" "Regular"
 ```
 
-#### `fc-list [[:<元素名称>=<元素值>]]`
+### `fc-list [[:<元素名称>=<元素值>]]`
 
 前文已经提到，该命令可以用来查看系统上已安装的字体已经它们对应的字体族名。而它同样也可以过滤具有特定语言、样式的字体。
 
-##### 示例
+**示例：**
 
 输入：
+
 ```bash
 fc-list :medium:lang=zh-CN
 ```
@@ -194,11 +198,9 @@ fc-list :medium:lang=zh-CN
 /usr/share/fonts/noto-cjk/NotoSansCJK-Medium.ttc: Noto Sans CJK TC,Noto Sans CJK TC Medium:style=Medium,Regular
 ```
 
-### 添加自己的配置
+## 配置文件及其语法
 
-自己的字体配置最好添加在自己的用户目录下，配置文件在 `~/.config/fontconfig/fonts.conf`，也可以在 `~/.config/fontconfig/conf.d/` 目录下自行创建文件（文件名应为 `XX-Something.conf`，`XX` 为数字，按文件名字典序读取，故数字小于 10 时需加上前导 0 才能按数字顺序读取）。
-
-#### 配置文件的语法
+自己的字体配置应该添加在自己的用户目录下，配置文件在 `~/.config/fontconfig/fonts.conf`，也可以在 `~/.config/fontconfig/conf.d/` 目录下自行创建文件（文件名应为 `XX-Something.conf`，`XX` 为数字，按文件名字典序读取，故数字小于 10 时需加上前导 0 才能按数字顺序读取）。
 
 多个配置文件是按顺序执行的，每个配置文件内的语句也是按顺序执行的。每个配置文件都是 XML 格式。
 
@@ -221,7 +223,7 @@ fc-list :medium:lang=zh-CN
 
 在本文章中，只涉及匹配阶段与渲染阶段的语法（不完整），其它部分及完整内容请见[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)，但这样已经可以满足调整字体的大部分需求。
 
-##### 匹配阶段
+### 匹配阶段
 
 `<alias>` 只能用于弱绑定，且用于弱绑定时和 `<match target="pattern">` 只是写法不同，实际作用相同，故此处只介绍 `<match target="pattern">` 的写法。
 
@@ -250,7 +252,7 @@ fc-list :medium:lang=zh-CN
 
 - `<test>`：检测需要的属性。只有所有 `<test>` 都满足，才会进行修改。即多个 `<test>` 之间为“与”的关系。要实现“或”的关系，需要多个 `<match>` 元素。如果不需要检测，也可以不设置 `<test>`。
   - 元素属性
-    - `name`：需要检测的属性。
+    - `name`（必需）：需要检测的属性。
     - `qual`：检测的品质。
       - `"any"`（默认）：检测到任意一项。
       - `"all"`：检测到全部。
@@ -263,19 +265,19 @@ fc-list :medium:lang=zh-CN
   - 元素内容：根据属性类型指定类型（使用 `<int>`、`<double>`、`<string>`、`<bool>`、`<charset>` 和 `<langset>`）包裹属性值或使用 `<const>` 包裹常量名。是需要检测（可能修改）的值。
 - `<edit>`：修改。
   - 元素属性
-    - `name`：需要修改的属性。
-    - `mode`：修改模式，默认修改相应 `<test>`（相同 `name` 属性）检测到的值。没有相应检测项或者使用括号中的变种时，执行“**//**”后面的操作。为了获得最高的优先级，用户配置中一般需要使用强引用配合 `prepend`。
-      - `"assign"`（`"assign_replace"`）：替换相应 `<test>` 检测到的值 **//** 替换整个列表。
-      - `"prepend"`（`"prepend_first"`）和 `"append"`（`"append_last"`）：分别在相应 `<test>` 检测到的值前面、后面插入值 **//** 在列表最前、最后插入值。
-      - `"delete"`（`"delete_all"`）：删除相应 `<test>` 检测到的值 **//** 删除整个列表。
+    - `name`（必需）：需要修改的属性。
+    - `mode`：修改模式，默认修改相应 `<test>`（相同 `name` 属性）检测到的值。没有相应检测项或者使用六角括号中的变种时，执行“**//**”后面的操作。为了获得最高的优先级，用户配置中一般需要使用强引用配合 `prepend`。
+      - `"assign"`（默认）〔`"assign_replace"`〕替换相应 `<test>` 检测到的值 **//** 替换整个列表。
+      - `"prepend"`〔`"prepend_first"`〕和 `"append"`〔`"append_last"`〕：分别在相应 `<test>` 检测到的值前面、后面插入值 **//** 在列表最前、最后插入值。
+      - `"delete"`〔`"delete_all"`〕：删除相应 `<test>` 检测到的值 **//** 删除整个列表。
     - `binding`：绑定模式。
       - `"strong"` 和 `"weak"`：指定强绑定和弱绑定。
-      - `"same"`：与相应 `<test>` 检测到的值的绑定模式相同。
+      - `"same"`（默认）：与相应 `<test>` 检测到的值的绑定模式相同。
   - 元素内容：根据属性类型指定类型（使用 `<int>`、`<double>`、`<string>`、`<bool>`、`<charset>` 和 `<langset>`）包裹属性值或使用 `<const>` 包裹常量名，用来指定修改后的值。
 
 匹配阶段结束，渲染阶段开始前的 `donePattern` 可以通过 `FC_DEBUG=4 fc-match -a sans:lang=zh | grep 'donePattern' -A 10 --max-count=1` 查看。
 
-##### 渲染阶段
+### 渲染阶段
 
 渲染阶段主要操控渲染器渲染字体的方式，可以提高性能、改善观感。
 
@@ -296,11 +298,13 @@ fc-list :medium:lang=zh-CN
 ![各种排列方式](/assets/3.png)
 - `embeddedbitmap`*(bool)*：是否启用字体内嵌的点阵字形。视个人需要开关。点阵字形即位图字形，相对于一般的向量字形可能渲染更快，但没有次像素渲染，会丢失字体的许多细节。
 
-这些属性对每个字体都独立，且每个字体只有一个值而不是值的列表，因此不需要考虑排序问题，可以弱绑定也可以强绑定。
+这些属性对每个字体都独立，且每个字体只有一个值而不是值的列表，因此不需要考虑排序问题，可以使用弱绑定也可以使用强绑定。默认情况下，这些属性不会被指定，由应用程序自己决定如何渲染字体。
 
-#### 设置默认字体
+## 添加自己的配置
 
-知道了配置文件的语法，学会设置默认字体就非常简单了。
+知道了配置文件的语法，学会设置默认字体就非常简单了。（顺便在这里贴上[我自己的 `fonts.conf`](/assets/fonts.conf)）
+
+### 设置默认字体
 
 示例（不包括文件头和 `<fontconfig>`）：
 ```xml
@@ -353,9 +357,9 @@ fc-list :medium:lang=zh-CN
 
 **注**：如果要替换掉西文字体，应该把用来替换的放在前，中文字体作为备用字体。
 
-#### 替换原有字体
+### 替换原有字体
 
-有些应用或网页的字体无法更改，可以通过替换的方式直接换成自己想要的字体
+有些应用或网页的字体无法更改，可以通过替换的方式直接换成自己想要的字体。
 
 示例（不包括文件头和 `<fontconfig>`）：
 ```xml
@@ -369,15 +373,43 @@ fc-list :medium:lang=zh-CN
 </match>
 ```
 
-#### 根据语言环境选择不同字体
+### 根据语言环境选择不同字体
 
 这可以解决[#常见字体配置问题](#常见字体配置问题)中的[#异体字不正确显示](#异体字不正确显示)与[#引号的全半角问题](#引号的全半角问题)。
 
-这里使用的 `Noto Sans CJK` 支持 `SC`（对应 `zh-CN`）、`HK`（对应 `zh-HK`）、`TC`（对应 `zh-TW`）、`JP`（对应 `ja`）、`KR`（对应 `ko`）五种变体。
+#### 解决异体字不正确显示问题
 
-示例一（不包括文件头和 `<fontconfig>`）：
+根据语言环境选择不同字体，需要将字体的地区变体和 IETF 语言标签对应起来。IETF 语言标签遵循的 RFC 5646 标准只规定了语言标签的组成，没有为各个语言（变体）指定特定的标签，而对于 fontconfig，我们只能通过匹配 `pattern` 的字符串类型的 `lang` 元素满足需求。这意味着需要将一些语言标签进行改动。在汉字字形变种的选用上，语言标签需要且只需要精确到区域（因为一个区域中对于同一个汉字，不管在简体还繁体语境下的字形规范相同），因此我们需要将一些过于精确的标签［例如 `zh-Hant-TW`（中文—繁体—台湾）］映射到简单一些的语言标签上［例如 `zh-TW`（中文—台湾）］。当然也要把模糊的语言标签映射到具体的语言标签上。最后再对映射后的语言标签匹配并替换字体。
+
+示例（不包括文件头和 `<fontconfig>`）：
 ```xml
-<!-- Replace fonts for Chinese (Hong Kong) -->
+<!-- 统一语言标识（没有添加到 `zh-CN` 的映射是因为我的默认字体用的就是 SC 变体，不需要检测） -->
+<match target="pattern">
+    <test name="lang">
+        <string>zh-Hant-TW</string>
+    </test>
+    <edit name="lang" binding="same" mode="assign">
+        <string>zh-TW</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang">
+        <string>zh-Hant-HK</string>
+    </test>
+    <edit name="lang" binding="same" mode="assign">
+        <string>zh-HK</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang">
+        <string>zh-Hant</string>
+    </test>
+    <edit name="lang" binding="same" mode="assign">
+        <string>zh-HK</string> <!-- 这里映射到港标，其实映射到台标或者不映射都行 -->
+    </edit>
+</match>
+
+<!-- 中文（香港） -->
 <match target="pattern">
     <test name="lang">
         <string>zh-HK</string>
@@ -394,17 +426,131 @@ fc-list :medium:lang=zh-CN
         <string>zh-HK</string>
     </test>
     <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK HK</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang">
+        <string>zh-HK</string>
+    </test>
+    <test name="family">
         <string>Noto Sans Mono CJK SC</string>
     </test>
     <edit binding="strong" name="family">
         <string>Noto Sans Mono CJK HK</string>
     </edit>
 </match>
+<!-- 中文（台湾） -->
+<match target="pattern">
+    <test name="lang">
+        <string>zh-TW</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans CJK TC</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang">
+        <string>zh-TW</string>
+    </test>
+    <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK TC</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang">
+        <string>zh-TW</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans Mono CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans Mono CJK TC</string>
+    </edit>
+</match>
+<!-- 日文 -->
+<match target="pattern" compare="contains">
+    <test name="lang">
+        <string>ja</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans CJK JP</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang" compare="contains">
+        <string>ja</string>
+    </test>
+    <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK JP</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang" compare="contains">
+        <string>ja</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans Mono CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans Mono CJK JP</string>
+    </edit>
+</match>
+<!-- Replace fonts for Korean -->
+<match target="pattern">
+    <test name="lang" compare="contains">
+        <string>ko</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans CJK KR</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang" compare="contains">
+        <string>ko</string>
+    </test>
+    <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK KR</string>
+    </edit>
+</match>
+<match target="pattern">
+    <test name="lang" compare="contains">
+        <string>ko</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans Mono CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans Mono CJK KR</string>
+    </edit>
+</match>
 ```
 
-此处替换了香港字体，其他地区切换类似。
+#### 解决引号的全半角问题
 
-示例二（不包括文件头和 `<fontconfig>`）：
+这里添加了 `qual="first"`，但其实添不添加都行，因为一般传入的 `lang` 属性只有一个值。
+
 ```xml
 <match target="pattern">
     <test compare="not_contains" name="lang" qual="first">
@@ -440,9 +586,9 @@ fc-list :medium:lang=zh-CN
 </match>
 ```
 
-**注**：Chrome 及 Chromium 只会取结果中的第一个字体，如果替换了将会使中文字符不能显示，此时需要通过属性 `prgname` 过滤掉这些程序，这些程序无法实现全半角切换。
+**注：**Chrome 及 Chromium 只会取结果中的第一个字体，如果替换了将会使中文字符不能显示，此时需要通过属性 `prgname` 过滤掉这些程序，这些程序无法实现正常的全半角切换。
 
-#### 优化字体渲染
+### 优化字体渲染
 
 示例（也可以不指定强绑定，不包括文件头和 `<fontconfig>`）：
 ```xml
@@ -469,7 +615,7 @@ fc-list :medium:lang=zh-CN
 </match>
 ```
 
-#### 其他程序的字体设定
+### 其他程序的字体设定
 
 许多程序自己有字体设定，或者使用 KDE 或 GNOME 等桌面环境的字体设定。但我们设置好了 fontconfig 不需要再设置这些软件。我们只需要在软件（或桌面环境提供的设置程序）中选择通用字族（可能为英文，也可能为中文 `等宽`、`衬线`、`无衬线`）为字体就行了。
 

@@ -177,16 +177,16 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                   <i class="fa-solid fa-cog fa-spin fa-fw"></i>
                   <span id="run_time_day">
                     <i class="fa-solid fa-spinner fa-pulse"></i>
-                  </span>天
+                  </span> 天
                   <span id="run_time_hour">
                     <i class="fa-solid fa-spinner fa-pulse"></i>
-                  </span>时
+                  </span> 时
                   <span id="run_time_minute">
                     <i class="fa-solid fa-spinner fa-pulse"></i>
-                  </span>分
+                  </span> 分
                   <span id="run_time_second">
                     <i class="fa-solid fa-spinner fa-pulse"></i>
-                  </span>秒
+                  </span> 秒
                   <script>
                     setInterval(function (d,h,m,s) {
                       function setzero(i) {
@@ -232,8 +232,8 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
             wordcount: # 全站字数统计
               enable: true # 本地调试时建议关闭，非常影响站点生成速度（所需时间与博文数量的平方成正比）
               prepend: <i class="fa-solid fa-user-edit fa-fw"></i>
-              kilo: 千
-              unit: 字
+              kilo: ""
+              unit: " 字"
           append_to_head: # 通过内嵌html的方式引入并定制插件，删改前确定知道自己在做什么。定制插件的方式可以参考这篇文章 <https://wu-kan.cn/_posts/2019-01-18-基于Jekyll搭建个人博客/>
             - | # jsdelivr 防挂脚本，来自 https://github.com/PipecraftNet/jsdelivr-auto-fallback/blob/0.2.2/index.min.js
               <script>
@@ -552,11 +552,11 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
           wordcount: # 统计全文字数
             enable: true
             prepend: <i class="fa-solid fa-file-word fa-fw"></i>
-            unit: 字
+            unit: " 字"
           readtime: # 计算文章阅读时间
             enable: true
             prepend: <i class="fa-solid fa-clock fa-fw"></i>
-            unit: 分
+            unit: " 分"
             divided_by: 300 # 正常人的阅读速度大概每分钟三百个字
           copyright:
             | # 使用 CC BY-NC-SA

@@ -13,7 +13,7 @@ tags:
 
 [官网介绍](https://www.freedesktop.org/wiki/Software/fontconfig/)
 
-Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为它有发现、查找字体的功能。而 fontconfig 是高度可定制的，意味着我们可以通过修改 fontconfig 的配置来控制**几乎所有程序**的字体显示（比直接使用 KDE/GNOME 的字体程序还广泛）。
+Linux 上**<span class="cjk-em">几乎所有程序</span>**获取字体都需要经过 fontconfig，因为它有发现、查找字体的功能。而 fontconfig 是高度可定制的，意味着我们可以通过修改 fontconfig 的配置来控制**<span class="cjk-em">几乎所有程序</span>**的字体显示（比直接使用 KDE/GNOME 的设置广泛得多）。
 
 程序通过 fontconfig 查找到字体信息后，调用渲染器（如 FreeType）渲染字体。
 
@@ -96,11 +96,11 @@ Linux 上**几乎所有程序**获取字体都需要经过 fontconfig，因为�
 
 ## Fontconfig 的运作方式
 
-Fontconfig 通过**按顺序**利用各种配置文件对传入的 `pattern`（一个或多个字体，包括字体的大小、粗细等样式）进行修改，并最后将系统中存在的字体从得到的 `pattern` 中找出来最终以一个列表的形式传递出去。列表由最先尝试使用的字体开始，程序应在前面字体不能使用时调用后面的字体渲染。
+Fontconfig 通过**<span class="cjk-em">按顺序</span>**利用各种配置文件对传入的 `pattern`（一个或多个字体，包括字体的大小、粗细等样式）进行修改，并最后将系统中存在的字体从得到的 `pattern` 中找出来最终以一个列表的形式传递出去。列表由最先尝试使用的字体开始，程序应在前面字体不能使用时调用后面的字体渲染。
 
 Fontconfig 读取配置文件，这些配置文件识别传入的 `pattern` 后加上自己的修改（例如，在前面插入 `Noto Sans CJK SC` 字体），最终 fontconfig 挑出能够在系统里找到的字体组成列表传出（此时传入的 `sans-serif` 等通用字族名被剔除）。
 
-**注**（也是 fontconfig **按顺序**读取配置文件的体现）：`sans`、`mono` 可以在最初传入的 `pattern` 中使用，但在 fontconfig 修改开始时便会被首先加载的配置文件分别替换为 `sans-serif` 和 `monospace`。由于 fontconfig 按顺序执行各个配置文件，当扫描到我们的配置文件时，`sans`（`sans serif`）和 `mono` 不会被我们检测到（因为它们已经不存在了）。因此，在我们自己的配置中，不能通过识别 `sans` 和 `mono` 来修改 `pattern`。
+**注**（也是 fontconfig **<span class="cjk-em">按顺序</span>**读取配置文件的体现）：`sans`、`mono` 可以在最初传入的 `pattern` 中使用，但在 fontconfig 修改开始时便会被首先加载的配置文件分别替换为 `sans-serif` 和 `monospace`。由于 fontconfig 按顺序执行各个配置文件，当扫描到我们的配置文件时，`sans`（`sans serif`）和 `mono` 不会被我们检测到（因为它们已经不存在了）。因此，在我们自己的配置中，不能通过识别 `sans` 和 `mono` 来修改 `pattern`。
 
 ### 强绑定与弱绑定
 
@@ -111,7 +111,7 @@ Fontconfig 读取配置文件，这些配置文件识别传入的 `pattern` 后�
 ## 调试
 
 ### `FC_DEBUG`
-通过向**任何**使用 fontconfig 的程序传入环境变量 `FC_DEBUG` 来调试，设定为 `4` 显示 `pattern` 的替换流程，设置为 `1024` 显示读取的配置文件。其它值详见[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)。
+通过向**<span class="cjk-em">任何</span>**使用 fontconfig 的程序传入环境变量 `FC_DEBUG` 来调试，设定为 `4` 显示 `pattern` 的替换流程，设置为 `1024` 显示读取的配置文件。其它值详见[官方用户文档](https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html)。
 
 **示例：**
 
@@ -355,7 +355,7 @@ fc-list :medium:lang=zh-CN
 </match>
 ```
 
-**注**：如果要替换掉西文字体，应该把用来替换的放在前，中文字体作为备用字体。
+**注：**如果要替换掉西文字体，应该把用来替换的放在前，中文字体作为备用字体。
 
 ### 替换原有字体
 

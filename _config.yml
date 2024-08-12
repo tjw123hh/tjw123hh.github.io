@@ -643,6 +643,7 @@ readme_index: # 缺失index.md和index.html时，使用README.md代替之
 
 webmaster_verifications: # <https://jekyll.github.io/jekyll-seo-tag/usage/>
   google: l33pC2x26x0pHasZRQ7y8QWs9KzP7473jHmzLnZ4r28
+  yandex: 5da3a9d04b1660cd
 
 locale: zh_CN
 

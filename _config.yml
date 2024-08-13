@@ -24,7 +24,7 @@ social:
     - https://www.zhihu.com/people/tjw-66
 
 author: tjw123hh
-url: https://tjw123hh.github.io # 你的域名，例如 https://wu-kan.github.io
+url: https://tjw123hh.cn.eu.org # 你的域名，例如 https://wu-kan.github.io
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/assets`前也要加，即`/your_baseurl/assets`。这一项结尾不要有'/'。
 
 defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/front-matter-defaults/>功能进行配置
@@ -641,11 +641,7 @@ remote_theme: https://github.com/wu-kan/jekyll-theme-WuK #使用固定版本号�
 readme_index: # 缺失index.md和index.html时，使用README.md代替之
   with_frontmatter: true # 支持带有yaml头的README
 
-webmaster_verifications: # <https://jekyll.github.io/jekyll-seo-tag/usage/>
-  google: l33pC2x26x0pHasZRQ7y8QWs9KzP7473jHmzLnZ4r28
-  yandex: 5da3a9d04b1660cd
-
-locale: zh_CN
+locale: zh-CN
 
 twitter:
   username: tjw123hh
@@ -659,7 +655,6 @@ encoding: utf-8
 
 markdown: kramdown
 kramdown: # 见<https://kramdown.gettalong.org/options.html>
-  input: GFM # 见<http://jekyllcn.com/docs/configuration/#kramdown>
   syntax_highlighter_opts: # 可见<https://kramdown.gettalong.org/syntax_highlighter/rouge.html>
     block:
       disable: false

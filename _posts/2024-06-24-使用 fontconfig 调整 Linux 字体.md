@@ -278,14 +278,14 @@ fc-list :medium:lang=zh-CN
 
 ```xml
 <match target="pattern">
-  <test name="family">
-    <string>sans-serif</string>
-  </test>
-  <edit name="family" mode="prepend" binding="strong">
-    <string>Noto Sans CJK SC</string>
-    <string>Noto Sans</string>
-    <string>Noto Color Emoji</string>
-  </edit>
+    <test name="family">
+        <string>sans-serif</string>
+    </test>
+    <edit name="family" mode="prepend" binding="strong">
+        <string>Noto Sans CJK SC</string>
+        <string>Noto Sans</string>
+        <string>Noto Color Emoji</string>
+    </edit>
 </match>
 ```
 
@@ -450,48 +450,48 @@ fc-list :medium:lang=zh-CN
 ```xml
 <!-- Default system-ui fonts -->
 <match target="pattern">
-  <test name="family">
-    <string>system-ui</string>
-  </test>
-  <edit binding="strong" mode="prepend" name="family">
-    <string>sans-serif</string>
-  </edit>
+    <test name="family">
+        <string>system-ui</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>sans-serif</string>
+    </edit>
 </match>
 <!-- Default sans-serif fonts-->
 <match target="pattern">
-  <test name="family">
-    <string>sans-serif</string>
-  </test>
-  <edit binding="strong" mode="prepend" name="family">
-    <string>Noto Sans CJK SC</string>
-    <string>Noto Sans</string>
-    <string>Noto Color Emoji</string>
-    <string>Symbols Nerd Font</string>
-  </edit>
+    <test name="family">
+        <string>sans-serif</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>Noto Sans CJK SC</string>
+        <string>Noto Sans</string>
+        <string>Noto Color Emoji</string>
+        <string>Symbols Nerd Font</string>
+    </edit>
 </match>
 <!-- Default serif fonts-->
 <match target="pattern">
-  <test name="family">
-    <string>serif</string>
-  </test>
-  <edit binding="strong" mode="prepend" name="family">
-    <string>Noto Serif CJK SC</string>
-    <string>Noto Serif</string>
-    <string>Noto Color Emoji</string>
-    <string>Symbols Nerd Font</string>
-  </edit>
+    <test name="family">
+        <string>serif</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>Noto Serif CJK SC</string>
+        <string>Noto Serif</string>
+        <string>Noto Color Emoji</string>
+        <string>Symbols Nerd Font</string>
+    </edit>
 </match>
 <!-- Default monospace fonts-->
 <match target="pattern">
-  <test name="family">
-    <string>monospace</string>
-  </test>
-  <edit binding="strong" mode="prepend" name="family">
-    <string>JetBrainsMono Nerd Font</string>
-    <string>Noto Sans Mono CJK SC</string>
-    <string>Noto Color Emoji</string>
-    <string>Symbols Nerd Font</string>
-  </edit>
+    <test name="family">
+        <string>monospace</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>JetBrainsMono Nerd Font</string>
+        <string>Noto Sans Mono CJK SC</string>
+        <string>Noto Color Emoji</string>
+        <string>Symbols Nerd Font</string>
+    </edit>
 </match>
 ```
 
@@ -506,12 +506,12 @@ fc-list :medium:lang=zh-CN
 
 ```xml
 <match target="pattern">
-  <test compare="contains" name="family">
-    <string>Source Code</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>JetBrainsMono Nerd Font</string>
-  </edit>
+    <test compare="contains" name="family">
+        <string>Source Code</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>JetBrainsMono Nerd Font</string>
+    </edit>
 </match>
 ```
 
@@ -529,165 +529,165 @@ fc-list :medium:lang=zh-CN
 ```xml
 <!-- 统一语言标识（没有添加到 `zh-CN` 的映射是因为我的默认字体用的就是 SC 变体，不需要检测） -->
 <match target="pattern">
-  <test name="lang">
-    <string>zh-Hant-TW</string>
-  </test>
-  <edit name="lang" binding="same" mode="assign">
-    <string>zh-TW</string>
-  </edit>
+    <test name="lang">
+        <string>zh-Hant-TW</string>
+    </test>
+    <edit name="lang" binding="same" mode="assign">
+        <string>zh-TW</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang">
-    <string>zh-Hant-HK</string>
-  </test>
-  <edit name="lang" binding="same" mode="assign">
-    <string>zh-HK</string>
-  </edit>
+    <test name="lang">
+        <string>zh-Hant-HK</string>
+    </test>
+    <edit name="lang" binding="same" mode="assign">
+        <string>zh-HK</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang">
-    <string>zh-Hant</string>
-  </test>
-  <edit name="lang" binding="same" mode="assign">
-    <string>zh-HK</string> <!-- 这里映射到港标，其实映射到台标或者不映射都行 -->
-  </edit>
+    <test name="lang">
+        <string>zh-Hant</string>
+    </test>
+    <edit name="lang" binding="same" mode="assign">
+        <string>zh-HK</string> <!-- 这里映射到港标，其实映射到台标或者不映射都行 -->
+    </edit>
 </match>
 
 <!-- 中文（香港） -->
 <match target="pattern">
-  <test name="lang">
-    <string>zh-HK</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans CJK HK</string>
-  </edit>
+    <test name="lang">
+        <string>zh-HK</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans CJK HK</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang">
-    <string>zh-HK</string>
-  </test>
-  <test name="family">
-    <string>Noto Serif CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Serif CJK HK</string>
-  </edit>
+    <test name="lang">
+        <string>zh-HK</string>
+    </test>
+    <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK HK</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang">
-    <string>zh-HK</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans Mono CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans Mono CJK HK</string>
-  </edit>
+    <test name="lang">
+        <string>zh-HK</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans Mono CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans Mono CJK HK</string>
+    </edit>
 </match>
 <!-- 中文（台湾） -->
 <match target="pattern">
-  <test name="lang">
-    <string>zh-TW</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans CJK TC</string>
-  </edit>
+    <test name="lang">
+        <string>zh-TW</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans CJK TC</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang">
-    <string>zh-TW</string>
-  </test>
-  <test name="family">
-    <string>Noto Serif CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Serif CJK TC</string>
-  </edit>
+    <test name="lang">
+        <string>zh-TW</string>
+    </test>
+    <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK TC</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang">
-    <string>zh-TW</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans Mono CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans Mono CJK TC</string>
-  </edit>
+    <test name="lang">
+        <string>zh-TW</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans Mono CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans Mono CJK TC</string>
+    </edit>
 </match>
 <!-- 日文 -->
 <match target="pattern" compare="contains">
-  <test name="lang">
-    <string>ja</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans CJK JP</string>
-  </edit>
+    <test name="lang">
+        <string>ja</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans CJK JP</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang" compare="contains">
-    <string>ja</string>
-  </test>
-  <test name="family">
-    <string>Noto Serif CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Serif CJK JP</string>
-  </edit>
+    <test name="lang" compare="contains">
+        <string>ja</string>
+    </test>
+    <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK JP</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang" compare="contains">
-    <string>ja</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans Mono CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans Mono CJK JP</string>
-  </edit>
+    <test name="lang" compare="contains">
+        <string>ja</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans Mono CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans Mono CJK JP</string>
+    </edit>
 </match>
 <!-- Replace fonts for Korean -->
 <match target="pattern">
-  <test name="lang" compare="contains">
-    <string>ko</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans CJK KR</string>
-  </edit>
+    <test name="lang" compare="contains">
+        <string>ko</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans CJK KR</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang" compare="contains">
-    <string>ko</string>
-  </test>
-  <test name="family">
-    <string>Noto Serif CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Serif CJK KR</string>
-  </edit>
+    <test name="lang" compare="contains">
+        <string>ko</string>
+    </test>
+    <test name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Serif CJK KR</string>
+    </edit>
 </match>
 <match target="pattern">
-  <test name="lang" compare="contains">
-    <string>ko</string>
-  </test>
-  <test name="family">
-    <string>Noto Sans Mono CJK SC</string>
-  </test>
-  <edit binding="strong" name="family">
-    <string>Noto Sans Mono CJK KR</string>
-  </edit>
+    <test name="lang" compare="contains">
+        <string>ko</string>
+    </test>
+    <test name="family">
+        <string>Noto Sans Mono CJK SC</string>
+    </test>
+    <edit binding="strong" name="family">
+        <string>Noto Sans Mono CJK KR</string>
+    </edit>
 </match>
 ```
 
@@ -698,36 +698,36 @@ fc-list :medium:lang=zh-CN
 
 ```xml
 <match target="pattern">
-  <test compare="not_contains" name="lang" qual="first">
-    <string>zh</string>
-  </test>
-  <test compare="not_contains" name="lang" qual="first">
-    <string>ja</string>
-  </test>
-  <test compare="not_contains" name="lang" qual="first">
-    <string>ko</string>
-  </test>
-  <test compare="contains" name="family">
-    <string>Noto Sans CJK SC</string>
-  </test>
-  <edit binding="strong" mode="prepend" name="family">
-    <string>Noto Sans</string>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>zh</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>ja</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>ko</string>
+    </test>
+    <test compare="contains" name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>Noto Sans</string>
 </match>
 <match target="pattern">
-  <test compare="not_contains" name="lang" qual="first">
-    <string>zh</string>
-  </test>
-  <test compare="not_contains" name="lang" qual="first">
-    <string>ja</string>
-  </test>
-  <test compare="not_contains" name="lang" qual="first">
-    <string>ko</string>
-  </test>
-  <test compare="contains" name="family">
-    <string>Noto Serif CJK SC</string>
-  </test>
-  <edit binding="strong" mode="prepend" name="family">
-    <string>Noto Serif</string>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>zh</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>ja</string>
+    </test>
+    <test compare="not_contains" name="lang" qual="first">
+        <string>ko</string>
+    </test>
+    <test compare="contains" name="family">
+        <string>Noto Serif CJK SC</string>
+    </test>
+    <edit binding="strong" mode="prepend" name="family">
+        <string>Noto Serif</string>
 </match>
 ```
 
@@ -741,24 +741,24 @@ fc-list :medium:lang=zh-CN
 ```xml
 <!--rendering options-->
 <match target="font">
-  <edit mode="assign" name="autohint" binding="strong">
-    <bool>false</bool>
-  </edit>
-  <edit mode="assign" name="hinting" binding="strong">
-    <bool>true</bool>
-  </edit>
-  <edit mode="assign" name="hintstyle" binding="strong">
-    <const>hintmedium</const>
-  </edit>
-  <edit mode="assign" name="antialias" binding="strong">
-    <bool>true</bool>
-  </edit>
-  <edit mode="assign" name="lcdfilter" binding="strong">
-    <const>lcddefault</const>
-  </edit>
-  <edit mode="assign" name="rgba" binding="strong">
-    <const>rgb</const>
-  </edit>
+    <edit mode="assign" name="autohint" binding="strong">
+        <bool>false</bool>
+    </edit>
+    <edit mode="assign" name="hinting" binding="strong">
+        <bool>true</bool>
+    </edit>
+    <edit mode="assign" name="hintstyle" binding="strong">
+        <const>hintmedium</const>
+    </edit>
+    <edit mode="assign" name="antialias" binding="strong">
+        <bool>true</bool>
+    </edit>
+    <edit mode="assign" name="lcdfilter" binding="strong">
+        <const>lcddefault</const>
+    </edit>
+    <edit mode="assign" name="rgba" binding="strong">
+        <const>rgb</const>
+    </edit>
 </match>
 ```
 

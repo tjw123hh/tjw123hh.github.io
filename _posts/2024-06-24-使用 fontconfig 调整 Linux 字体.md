@@ -465,8 +465,8 @@ fc-list :medium:lang=zh-CN
     <edit binding="strong" mode="prepend" name="family">
         <string>Noto Sans CJK SC</string>
         <string>Noto Sans</string>
-        <string>Noto Color Emoji</string>
         <string>Symbols Nerd Font</string>
+        <string>Noto Color Emoji</string>
     </edit>
 </match>
 <!-- Default serif fonts-->
@@ -477,8 +477,8 @@ fc-list :medium:lang=zh-CN
     <edit binding="strong" mode="prepend" name="family">
         <string>Noto Serif CJK SC</string>
         <string>Noto Serif</string>
-        <string>Noto Color Emoji</string>
         <string>Symbols Nerd Font</string>
+        <string>Noto Color Emoji</string>
     </edit>
 </match>
 <!-- Default monospace fonts-->
@@ -489,8 +489,8 @@ fc-list :medium:lang=zh-CN
     <edit binding="strong" mode="prepend" name="family">
         <string>JetBrainsMono Nerd Font</string>
         <string>Noto Sans Mono CJK SC</string>
-        <string>Noto Color Emoji</string>
         <string>Symbols Nerd Font</string>
+        <string>Noto Color Emoji</string>
     </edit>
 </match>
 ```

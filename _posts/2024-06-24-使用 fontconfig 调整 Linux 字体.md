@@ -13,7 +13,7 @@ tags:
 
 [官网介绍](https://www.freedesktop.org/wiki/Software/fontconfig/)
 
-Linux 上**<span class="cjk-em">几乎所有程序</span>**获取字体都需要经过 fontconfig，因为它有发现、查找字体的功能。而 fontconfig 是高度可定制的，意味着我们可以通过修改 fontconfig 的配置来控制**<span class="cjk-em">几乎所有程序</span>**的字体显示（比直接使用 KDE/GNOME 的设置广泛得多）。
+Linux 上**几乎所有程序**{: .cjk-em}获取字体都需要经过 fontconfig，因为它有发现、查找字体的功能。而 fontconfig 是高度可定制的，意味着我们可以通过修改 fontconfig 的配置来控制**几乎所有程序**{: .cjk-em}的字体显示（比直接使用 KDE/GNOME 的设置广泛得多）。
 
 程序通过 fontconfig 查找到字体信息后，调用渲染器（如 FreeType）渲染字体。
 
@@ -64,7 +64,7 @@ Linux 上**<span class="cjk-em">几乎所有程序</span>**获取字体都需要
 |---------------+-----------------------------------------------------------------------------------|
 | 类别			| 显示效果																			|
 |---------------|-----------------------------------------------------------------------------------|
-| 系统界面字体		| <span style="font-family: system-ui;">这是系统界面字体。This is system-ui.</span>		|
+| 系统界面字体	| <span style="font-family: system-ui;">这是系统界面字体。This is system-ui.</span>	|
 | 衬线体			| <span style="font-family: serif;">这是衬线体。This is serif.</span>					|
 | 无衬线体		| <span style="font-family: sans-serif;">这是无衬线体。This is sans-serif.</span>		|
 | 等宽字体		| <span style="font-family: monospace;">这是等宽字体。This is monospace.</span>		|
@@ -103,9 +103,9 @@ Linux 上**<span class="cjk-em">几乎所有程序</span>**获取字体都需要
 | 语言		| 语言标签	| 显示效果										|
 |-----------|-----------|-----------------------------------------------|
 | 默认		|			| 遍角次亮采之关复门。								|
-| 中文（中国）	| zh-CN		| <span lang="zh-CN">遍角次亮采之关复门。</span>	|
-| 中文（台湾）	| zh-TW		| <span lang="zh-TW">遍角次亮采之关复门。</span>	|
-| 中文（香港）	| zh-HK		| <span lang="zh-HK">遍角次亮采之关复门。</span>	|
+| 中文（中国）| zh-CN		| <span lang="zh-CN">遍角次亮采之关复门。</span>	|
+| 中文（台湾）| zh-TW		| <span lang="zh-TW">遍角次亮采之关复门。</span>	|
+| 中文（香港）| zh-HK		| <span lang="zh-HK">遍角次亮采之关复门。</span>	|
 | 日文		| ja		| <span lang="ja">遍角次亮采之关复门。</span>		|
 | 韩文		| ko-KR		| <span lang="ko-KR">遍角次亮采之关复门。</span>	|
 | 朝鲜文		| ko-KP		| <span lang="ko-KP">遍角次亮采之关复门。</span>	|
@@ -126,7 +126,7 @@ Linux 上**<span class="cjk-em">几乎所有程序</span>**获取字体都需要
 | 语言		| 语言标签	| 显示效果							|
 |-----------|-----------|-----------------------------------|
 | 默认		|			| ‘’“”								|
-| 中文（中国）	| zh-CN		| <span lang="zh-CN">‘’“”</span>	|
+| 中文（中国）| zh-CN		| <span lang="zh-CN">‘’“”</span>	|
 | 英文		| en		| <span lang="en">‘’“”</span>		|
 |-----------+-----------+-----------------------------------|
 

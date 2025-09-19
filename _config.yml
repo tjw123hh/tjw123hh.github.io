@@ -263,6 +263,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 http-equiv="content-type"
                 content="text/html; charset=utf-8"
               />
+              <meta name="ocs-site-verification" content="e268cd7ca3ea30f9a41e2ac3c281a732" />
               <link
                 rel="alternate"
                 href="/feed.xml"

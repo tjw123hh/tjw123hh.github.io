@@ -318,7 +318,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 }
                 * {
                   font-feature-settings: 'chws', 'vchw';
-                  text-spacing: auto;
+                  text-autospace: replace;
                 }
                 .alt {
                   text-align: center;
